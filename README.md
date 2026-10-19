@@ -44,7 +44,7 @@ A COPD monitoring research workflow: a reviewer examines available oxygen satura
 
 ### Demo video
 
-[**Watch Pulmira's complete working demonstration on YouTube**](https://youtu.be/yFkJaLO3df0) — **15:00**, with English narration and visible English subtitles. Checked on 19 October 2026: the video is marked **Unlisted** and starts playing while signed out.
+[**Watch Pulmira's complete working demonstration on YouTube**](https://youtu.be/yFkJaLO3df0) 
 
 The recording uses the original integrated workspace, including historical TOLIFE/BIDMC views. This public repository provides the fictional monitoring demo, simulator and trained-model inference; participant-level clinical source archives are excluded, so those original source views are not populated in a fresh public clone. See [public distribution and privacy](#public-distribution-and-privacy).
 
