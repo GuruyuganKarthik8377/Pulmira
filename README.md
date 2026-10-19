@@ -29,16 +29,24 @@ A COPD monitoring research workflow: a reviewer examines available oxygen satura
 
 | Required item | Link / status |
 | --- | --- |
-| Team and college details | Above |
-| Project title, problem statement and healthcare use case | Above |
-| Technical stack and AI/ML details | Below |
-| Architecture diagram (PDF) | [Architecture](docs/Pulmira_Architecture.pdf) |
-| Project presentation and outcomes (PDF) | [PDF presentation](docs/Pulmira_Presentation.pdf) / [editable PowerPoint](docs/Pulmira_Presentation.pptx) |
-| Open-source license | [MIT license for team-authored software](LICENSE); [third-party and data notices](THIRD_PARTY_NOTICES.md) |
-| 15-20 minute unlisted YouTube demo | **PENDING - final narrated video has not yet been uploaded. Add its unlisted YouTube URL here before submitting.** |
-| Public access | Repository files are public. The YouTube requirement remains incomplete until a viewable link is added. |
+| Team details | [Three team members](#team-details) |
+| College/incubator information | [Chennai Institute of Technology](#team-details) |
+| Project title | [Pulmira](#pulmira) |
+| Problem statement | [Problem statement](#problem-statement) |
+| Healthcare use case | [COPD monitoring research workflow](#healthcare-use-case) |
+| Technical stack | [Frontend, backend and research tools](#technical-stack) |
+| AI/ML model or framework details | [Formula, trained model and simulator](#aiml-model-and-formula-details) |
+| 15-20 minute unlisted YouTube demo | [Watch the 15-minute narrated demo](https://youtu.be/yFkJaLO3df0) |
+| Open-source license details | [MIT license for team-authored software](LICENSE); [data, dependency and artwork notices](THIRD_PARTY_NOTICES.md) |
+| Architecture diagram in PDF/PPT format | [Architecture PDF](docs/Pulmira_Architecture.pdf) |
+| Presentation covering project details and outcomes in PDF/PPT format | [PDF presentation](docs/Pulmira_Presentation.pdf) / [editable PowerPoint](docs/Pulmira_Presentation.pptx) |
+| Access without additional permissions | Public repository and documents; demo is Unlisted and viewable without signing in. |
 
-**Submission is not yet complete:** upload the final 15-20 minute narrated demo to YouTube as **Unlisted**, replace the pending row with its URL, and verify it plays when signed out. Do not tick the video requirement until then. The synthetic EHR source is now verified and attributed under Apache-2.0; inherited illustration rights still need confirmation.
+### Demo video
+
+[**Watch Pulmira's complete working demonstration on YouTube**](https://youtu.be/yFkJaLO3df0) — **15:00**, with English narration and visible English subtitles. Checked on 19 October 2026: the video is marked **Unlisted** and starts playing while signed out.
+
+The recording uses the original integrated workspace, including historical TOLIFE/BIDMC views. This public repository provides the fictional monitoring demo, simulator and trained-model inference; participant-level clinical source archives are excluded, so those original source views are not populated in a fresh public clone. See [public distribution and privacy](#public-distribution-and-privacy).
 
 ## Implemented components
 
@@ -168,8 +176,8 @@ tools/          Public-distribution checks
 
 ## Open-source license and attribution
 
-Team-authored software is released under the [MIT License](LICENSE). Dependencies retain their own licences. This does not relicense external datasets, fictional EHR source material, model/data exports or inherited artwork; read [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for verified dataset attribution, modification notices and the remaining artwork-rights limitation. Real-person clinical datasets are not redistributed here.
+Team-authored software is released under the [MIT License](LICENSE). Dependencies retain their own licences. This does not relicense external datasets, fictional EHR source material, model/data exports or artwork; read [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for verified dataset attribution, modification notices and the scope of the team-owned illustrations. The team confirms ownership of the respiratory illustrations; the software MIT grant does not separately license the artwork. Real-person clinical datasets are not redistributed here.
 
 ## Next steps
 
-Complete the narrated unlisted YouTube upload and add its link. Confirm the inherited illustration rights. For clinical prediction, obtain event-linked longitudinal data with verified onset, availability and surveillance; predeclare a patient-separated experiment; assess coverage, incident-event recall and calibration; then seek independent clinical validation. More synthetic rows alone do not establish clinical accuracy.
+For clinical prediction, obtain event-linked longitudinal data with verified onset, availability and surveillance; predeclare a patient-separated experiment; assess coverage, incident-event recall and calibration; then seek independent clinical validation. More synthetic rows alone do not establish clinical accuracy.

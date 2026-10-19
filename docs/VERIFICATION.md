@@ -20,6 +20,8 @@ Verified locally on 19 October 2026. These are software and integrity checks, no
 | Publication scan | Custom tracked-file privacy/credential scan and Gitleaks scan found no matching credentials in reviewed export |
 | Image metadata | Frontend JPEG files have no EXIF fields |
 | Submission documents | Architecture PDF previously visually reviewed. Presentation replaced with the supplied 14-page PDF and 14-slide PowerPoint; PDF readability, PowerPoint package integrity and exact source-file hashes checked. Previous presentation layout checks do not apply to this replacement. |
+| Submission checklist and public access | All 12 supplied README requirements are listed with working local targets. Architecture PDF and both presentation formats are public; YouTube demo is 15:00, marked Unlisted and starts playing while signed out. |
+| Artwork ownership | Project team confirms creation/ownership of the included respiratory illustrations; artwork remains outside the software MIT grant. |
 
 The Starlette test client emits one dependency deprecation warning. This does not fail the suite. All test credentials are clearly named local fixtures; they do not access a service.
 
@@ -29,11 +31,16 @@ The original local project has additional source-data checks. They do not count 
 
 ## Limits and outstanding items
 
-- The final narrated unlisted YouTube video has not been uploaded, so the mandatory demo link remains pending.
-- The inherited illustration source rights still need confirmation. The original Kaggle version 3 source is now verified by exact file hashes and reconstructed COPD-cohort hashes; the publisher lists Apache-2.0. Attribution and the licence copy are included, without relicensing the upstream data as MIT.
+- The original Kaggle version 3 source is verified by exact file hashes and reconstructed COPD-cohort hashes; the publisher lists Apache-2.0. Attribution and the licence copy are included, without relicensing the upstream data as MIT. Team-owned artwork remains outside the software MIT grant.
 - Clinical seven-day event prediction, clinical calibration and independent clinical validation remain unavailable. Synthetic accuracy cannot establish those outcomes.
 - Automated scanning cannot guarantee detection of every possible secret or sensitive fact. Runtime databases/secrets and raw health data are excluded from Git entirely.
 
 ## Dataset verification follow-up, 19 October 2026
 
 A fresh download from Sergey Nefedov's Kaggle dataset version 3 matched all five original user-downloaded CSVs byte for byte. Re-extracting the 8,450-profile COPD subset reproduced every recorded input-table SHA-256 in the frozen simulator provenance. The apparent full-file hash difference was expected because the frozen inputs were filtered tables. See KAGGLE_SOURCE_VERIFICATION.json. This follow-up changes documentation and licence notices only; it does not retrain or alter the model, simulator assumptions, numerical profiles or scientific hash locks.
+
+## Final submission documentation check, 19 October 2026
+
+The demo link is [https://youtu.be/yFkJaLO3df0](https://youtu.be/yFkJaLO3df0). A signed-out browser showed the Unlisted badge and 15:00 duration, started playback, and displayed the visible English subtitles. This verifies access and observed playback, not a new end-to-end review of the full uploaded video. The local narrated export was previously decoded in full without errors.
+
+The README submission table maps all 12 supplied hackathon requirements to their sections or artifacts. The public clone's fictional data scope is distinguished from the historical source views in the video. This documentation check does not rerun or change the clinical research, model, simulator or previous test results.

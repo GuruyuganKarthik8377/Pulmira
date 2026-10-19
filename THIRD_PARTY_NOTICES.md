@@ -2,7 +2,7 @@
 
 ## Scope of MIT
 
-The root MIT license applies to team-authored application/research software and new submission documentation. It does not override third-party package licences or grant rights to external data, exported model/data materials or inherited artwork. Dependencies are installed from pinned lockfiles with their upstream licences; no dependency installation is vendored.
+The root MIT license applies to team-authored application/research software and new submission documentation. It does not override third-party package licences or grant rights to external data, exported model/data materials or artwork. Dependencies are installed from pinned lockfiles with their upstream licences; no dependency installation is vendored.
 
 ## Historical real-data references (not redistributed)
 
@@ -25,7 +25,7 @@ The raw 100K source tables are not redistributed in this repository. The Apache-
 
 ## Frontend artwork
 
-The respiratory illustrations in `frontend/public/assets` were supplied as part of the existing project frontend. Their original creation/source licence was not documented in the supplied project. They are retained as provided for the project demonstration and are excluded from the scope of the team-code MIT grant. Confirm ownership/source rights before reusing the illustrations separately.
+The project team confirmed on 19 October 2026 that it created/owns the respiratory illustrations in `frontend/public/assets`. They are included with the team's authorization for the Pulmira demonstration and public project distribution. This ownership statement is supplied by the team. The illustrations remain outside the root MIT software/documentation grant; no separate artwork reuse licence is granted here. Contact the project team before reusing the artwork separately.
 
 ## Main dependency families
 
