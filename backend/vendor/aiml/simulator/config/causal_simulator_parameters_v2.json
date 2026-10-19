@@ -1,0 +1,1087 @@
+{
+  "version": "causal-simulator-parameters-2.0.0",
+  "created": "2026-10-11",
+  "status": "parameter_package_complete_frozen_generator_not_implemented",
+  "parameterization_complete": true,
+  "ready_for_generator_implementation": true,
+  "generation_verified": false,
+  "clinical_validation": false,
+  "causal_effects_identified": false,
+  "accuracy_target_used_for_parameter_selection": false,
+  "specification_sha256": "5401e5955d384e6abeba9997066d0876a7c9f16905c91e1c2d84caae5dbdfaa3",
+  "calibration_plan_sha256": "99aed688ae788a918480f42ab0134c60d4c3770867becbfb0945b6c8f7aa2b66",
+  "calibration_sha256": "cfd4b93ac540f0b7fdf4d9595a6e7fc97768e17375c49d4aba22b589fed2ad46",
+  "profile_sha256": "44090899c2c5d6013f71ee84941382f8d1d6fc0af26adeae3c4ea7af14d71a0c",
+  "calibration_split": "train",
+  "event_labels_used_for_parameterization": false,
+  "restricted_data_obtained": false,
+  "target": {
+    "primary": "symptom_onset_of_episode_later_classified_moderate_or_severe_care_proxy",
+    "horizon_days": 7,
+    "prediction_time": "end_of_day_t_after_only_available_measurements",
+    "interval": "(t,t+7]",
+    "separate_secondary": "moderate_or_severe_care_event_within_7_days",
+    "secondary_can_replace_primary": false,
+    "unknown_followup_label": "unknown",
+    "unknown_severity_label": "unknown",
+    "requires_label_maturation": true,
+    "severity_scheme": "historical_care_proxy_not_Rome",
+    "onset_timestamp_semantics_in_TOLIFE": "not_established"
+  },
+  "protocol": {
+    "warmup_days": 28,
+    "rolling_days": [
+      3,
+      7,
+      14,
+      28
+    ],
+    "minimum_baseline_readings": 7,
+    "minimum_current_core_channels": 2,
+    "split_fractions": [
+      0.7,
+      0.15,
+      0.15
+    ],
+    "seed": 20261010,
+    "alert_budget_fraction": 0.05,
+    "cooldown_days": 7,
+    "numerical_protocol_status": "engineering_choices_not_clinical_thresholds"
+  },
+  "simulation_design": {
+    "simulation_start": "2025-02-01",
+    "forecast_calendar_days": 180,
+    "label_only_followup_days": 21,
+    "source_date_is_fictional_anchor": true,
+    "generation_seed": 20261010,
+    "diagnostic_scenario_rng_policy": "same_exogenous_keys_per_patient_module_day_across_scenarios",
+    "clinical_validation_population": null
+  },
+  "descriptive_references": {
+    "spo2_pct": {
+      "source_feature": "pei_spo2",
+      "units": "percent",
+      "collection_context": "spirometer_session",
+      "training_patients_total": 50,
+      "reference_patients_at_least_7_readings": 28,
+      "observed_days": 1115,
+      "calendar_days": 10814,
+      "baseline_median": 94.0,
+      "baseline_patient_bootstrap_95pct": [
+        93.0,
+        95.5
+      ],
+      "total_observed_sd_median": 1.8061845365888751,
+      "total_sd_patient_bootstrap_95pct": [
+        1.600343927955396,
+        2.3908684715827984
+      ],
+      "reference_sd_used": 1.8061845365888751,
+      "sd_floor_is_engineering_choice": 0.25,
+      "between_patient_baseline_pool": [
+        83.0,
+        87.0,
+        91.0,
+        91.0,
+        93.0,
+        93.0,
+        93.0,
+        93.0,
+        93.0,
+        93.0,
+        93.0,
+        94.0,
+        94.0,
+        94.0,
+        94.0,
+        94.0,
+        95.0,
+        95.0,
+        95.0,
+        96.0,
+        96.0,
+        96.0,
+        96.0,
+        96.0,
+        96.5,
+        97.0,
+        97.5,
+        98.0
+      ],
+      "transition_counts": {
+        "00": 8950,
+        "01": 700,
+        "10": 699,
+        "11": 415
+      },
+      "p_observed_after_missing": 0.07262743472855367,
+      "p_missing_after_observed": 0.6272401433691757,
+      "stationary_observation_fraction_of_assumed_markov_model": 0.10377310937300196,
+      "empirical_observation_fraction": 0.10310708341039393
+    },
+    "heart_rate_bpm": {
+      "source_feature": "pei_hr",
+      "units": "bpm",
+      "collection_context": "spirometer_session",
+      "training_patients_total": 50,
+      "reference_patients_at_least_7_readings": 28,
+      "observed_days": 1115,
+      "calendar_days": 10814,
+      "baseline_median": 82.75,
+      "baseline_patient_bootstrap_95pct": [
+        77.75,
+        86.51249999999999
+      ],
+      "total_observed_sd_median": 9.06262465931093,
+      "total_sd_patient_bootstrap_95pct": [
+        7.339195043240011,
+        9.81606467746497
+      ],
+      "reference_sd_used": 9.06262465931093,
+      "sd_floor_is_engineering_choice": 1.0,
+      "between_patient_baseline_pool": [
+        67.0,
+        70.0,
+        71.0,
+        72.5,
+        73.0,
+        75.0,
+        75.5,
+        76.0,
+        77.5,
+        78.0,
+        78.0,
+        78.0,
+        81.0,
+        82.5,
+        83.0,
+        84.0,
+        84.0,
+        85.0,
+        86.0,
+        88.0,
+        91.0,
+        91.0,
+        91.0,
+        92.0,
+        94.0,
+        95.0,
+        103.0,
+        103.0
+      ],
+      "transition_counts": {
+        "00": 8950,
+        "01": 700,
+        "10": 699,
+        "11": 415
+      },
+      "p_observed_after_missing": 0.07262743472855367,
+      "p_missing_after_observed": 0.6272401433691757,
+      "stationary_observation_fraction_of_assumed_markov_model": 0.10377310937300196,
+      "empirical_observation_fraction": 0.10310708341039393
+    },
+    "respiratory_rate_per_min": {
+      "source_feature": "bri_rf_mean",
+      "units": "breaths_per_min",
+      "collection_context": "sleep_phase",
+      "training_patients_total": 50,
+      "reference_patients_at_least_7_readings": 18,
+      "observed_days": 468,
+      "calendar_days": 10814,
+      "baseline_median": 16.682499999999997,
+      "baseline_patient_bootstrap_95pct": [
+        15.87,
+        18.01
+      ],
+      "total_observed_sd_median": 1.37004562329096,
+      "total_sd_patient_bootstrap_95pct": [
+        0.9745862915975252,
+        1.561447865849939
+      ],
+      "reference_sd_used": 1.37004562329096,
+      "sd_floor_is_engineering_choice": 0.25,
+      "between_patient_baseline_pool": [
+        14.52,
+        14.559999999999999,
+        14.64,
+        15.184999999999999,
+        15.7,
+        16.04,
+        16.2,
+        16.64,
+        16.674999999999997,
+        16.69,
+        17.095,
+        17.885,
+        18.01,
+        18.08,
+        18.105,
+        20.04,
+        20.26,
+        22.08
+      ],
+      "transition_counts": {
+        "00": 10123,
+        "01": 173,
+        "10": 173,
+        "11": 295
+      },
+      "p_observed_after_missing": 0.016896484754321227,
+      "p_missing_after_observed": 0.3702127659574468,
+      "stationary_observation_fraction_of_assumed_markov_model": 0.043647845468053496,
+      "empirical_observation_fraction": 0.04327723321620122
+    },
+    "sleep_hours": {
+      "source_feature": "sqi_sleep_duration",
+      "units": "hours",
+      "collection_context": "nightly",
+      "training_patients_total": 50,
+      "reference_patients_at_least_7_readings": 14,
+      "observed_days": 356,
+      "calendar_days": 10814,
+      "baseline_median": 7.732119097322284,
+      "baseline_patient_bootstrap_95pct": [
+        6.6,
+        8.2
+      ],
+      "total_observed_sd_median": 1.3781210249139817,
+      "total_sd_patient_bootstrap_95pct": [
+        1.1738203477527918,
+        1.5420618988344286
+      ],
+      "reference_sd_used": 1.3781210249139817,
+      "sd_floor_is_engineering_choice": 0.25,
+      "between_patient_baseline_pool": [
+        3.9,
+        5.7,
+        6.4,
+        6.6,
+        6.99235502517248,
+        7.2,
+        7.64994612713995,
+        7.81429206750462,
+        8.13596094738745,
+        8.17131998245871,
+        8.2,
+        8.286493405309145,
+        8.41248303934871,
+        9.33094279760517
+      ],
+      "transition_counts": {
+        "00": 10263,
+        "01": 146,
+        "10": 145,
+        "11": 210
+      },
+      "p_observed_after_missing": 0.014119681106521948,
+      "p_missing_after_observed": 0.40896358543417366,
+      "stationary_observation_fraction_of_assumed_markov_model": 0.03337329131915408,
+      "empirical_observation_fraction": 0.03292028851488811
+    },
+    "aqi_index": {
+      "source_feature": "ei_mean_aqi",
+      "units": "AQI",
+      "collection_context": "sleep_environment",
+      "training_patients_total": 50,
+      "reference_patients_at_least_7_readings": 31,
+      "observed_days": 1832,
+      "calendar_days": 10814,
+      "baseline_median": 84.2425,
+      "baseline_patient_bootstrap_95pct": [
+        69.525,
+        93.7025
+      ],
+      "total_observed_sd_median": 17.929454085652573,
+      "total_sd_patient_bootstrap_95pct": [
+        15.161277000986836,
+        24.63779265819966
+      ],
+      "reference_sd_used": 17.929454085652573,
+      "sd_floor_is_engineering_choice": 5.0,
+      "between_patient_baseline_pool": [
+        0.0,
+        52.3575,
+        53.8925,
+        53.915,
+        57.3925,
+        58.08,
+        63.61,
+        66.41,
+        67.5925,
+        67.84,
+        69.525,
+        70.8075,
+        79.17,
+        79.86,
+        80.405,
+        84.2425,
+        86.23750000000001,
+        86.96000000000001,
+        87.91499999999999,
+        88.36500000000001,
+        91.8075,
+        93.7025,
+        95.91499999999999,
+        96.975,
+        98.44,
+        102.595,
+        102.5975,
+        111.735,
+        111.775,
+        125.11250000000001,
+        138.54000000000002
+      ],
+      "transition_counts": {
+        "00": 8795,
+        "01": 137,
+        "10": 137,
+        "11": 1695
+      },
+      "p_observed_after_missing": 0.01544660846205507,
+      "p_missing_after_observed": 0.0752453653217012,
+      "stationary_observation_fraction_of_assumed_markov_model": 0.1703194650817236,
+      "empirical_observation_fraction": 0.16941002404290734
+    },
+    "gait_speed_m_per_s": {
+      "source_feature": "mi_gs_mean",
+      "units": "m_per_s",
+      "collection_context": "mobility_index",
+      "training_patients_total": 50,
+      "reference_patients_at_least_7_readings": 41,
+      "observed_days": 2221,
+      "calendar_days": 10814,
+      "baseline_median": 0.83,
+      "baseline_patient_bootstrap_95pct": [
+        0.775,
+        0.94
+      ],
+      "total_observed_sd_median": 0.23207656094884715,
+      "total_sd_patient_bootstrap_95pct": [
+        0.1802313328290432,
+        0.2733946544556514
+      ],
+      "reference_sd_used": 0.23207656094884715,
+      "sd_floor_is_engineering_choice": 0.03,
+      "between_patient_baseline_pool": [
+        0.35,
+        0.45,
+        0.47,
+        0.485,
+        0.5,
+        0.52,
+        0.56,
+        0.59,
+        0.62,
+        0.665,
+        0.71,
+        0.735,
+        0.74,
+        0.775,
+        0.78,
+        0.79,
+        0.795,
+        0.8,
+        0.81,
+        0.81,
+        0.83,
+        0.83,
+        0.845,
+        0.89,
+        0.9,
+        0.94,
+        0.94,
+        0.95,
+        1.0,
+        1.0,
+        1.02,
+        1.025,
+        1.04,
+        1.05,
+        1.05,
+        1.065,
+        1.0950000000000002,
+        1.16,
+        1.16,
+        1.26,
+        1.28
+      ],
+      "transition_counts": {
+        "00": 7796,
+        "01": 747,
+        "10": 747,
+        "11": 1474
+      },
+      "p_observed_after_missing": 0.08753657109420714,
+      "p_missing_after_observed": 0.33648223121907334,
+      "stationary_observation_fraction_of_assumed_markov_model": 0.2064450222882615,
+      "empirical_observation_fraction": 0.20538191233586092
+    }
+  },
+  "parameter_registry": [
+    {
+      "id": "burden_persistence",
+      "units": "dimensionless",
+      "evidence_ids": [
+        "ROME"
+      ],
+      "status": "engineering_assumption",
+      "value": {
+        "rho": 0.82,
+        "baseline_innovation_sd": 0.05,
+        "maximum_burden": 10.0,
+        "initial_burden": 0.0
+      },
+      "rationale": "Illustrative positive persistent process; neither rho nor innovations fitted to clinical outcomes.",
+      "clinically_validated": false
+    },
+    {
+      "id": "infection_arrival_and_duration",
+      "units": "per_day_and_days",
+      "evidence_ids": [
+        "ROME"
+      ],
+      "status": "engineering_assumption",
+      "value": {
+        "arrival_probability_per_day": 0.01,
+        "duration_days_inclusive": [
+          5,
+          10
+        ],
+        "amplitude_uniform": [
+          0.25,
+          0.55
+        ],
+        "rise_days": 2,
+        "overlapping_infections": "take_maximum_current_drive",
+        "profile_multiplier": "baseline_vulnerability"
+      },
+      "rationale": "Hypothetical event-driving infections; probabilities and amplitude/duration are not clinical estimates.",
+      "clinically_validated": false
+    },
+    {
+      "id": "exposure_process",
+      "units": "channel_specific_units",
+      "evidence_ids": [
+        "COPE"
+      ],
+      "status": "descriptive_reference_with_engineering_mapping",
+      "value": {
+        "channel": "aqi_index",
+        "units": "AQI",
+        "collection_context": "sleep_environment",
+        "baseline_pool_reference": "channels.aqi_index.between_patient_baseline_pool",
+        "rho": 0.8,
+        "stationary_sd_reference": "sqrt(1-device_variance_fraction)*channels.aqi_index.reference_sd_used",
+        "separate_intrinsic_observation_noise_applied_to_aqi": false,
+        "bounds": [
+          0.0,
+          500.0
+        ],
+        "exposure_is_simulated": true,
+        "AQI_to_PM25_conversion": false
+      },
+      "rationale": "Baseline/dispersion use training AQI summaries; AR structure, bounds and synthetic transfer are assumptions.",
+      "clinically_validated": false
+    },
+    {
+      "id": "exposure_burden_effect",
+      "units": "per_exposure_unit",
+      "evidence_ids": [
+        "COPE"
+      ],
+      "status": "engineering_assumption",
+      "value": {
+        "beta_per_100_AQI_above_100": 0.0,
+        "drive": "beta*max(0,(aqi_index-100)/100)",
+        "effect_is_identified": false,
+        "default_policy": "null_effect",
+        "nonzero_values_only_in_named_hypothetical_scenarios": true
+      },
+      "rationale": "Zero avoids asserting an identified effect; a separate nonzero scenario demonstrates an assumed equation.",
+      "clinically_validated": false
+    },
+    {
+      "id": "baseline_vulnerability",
+      "units": "dimensionless",
+      "evidence_ids": [
+        "KAGGLE_LOCAL"
+      ],
+      "status": "engineering_assumption",
+      "value": {
+        "formula": "clip(exp(0.01*(age-65)+0.08*charlson_index+0.20*current_smoker+frailty),0.5,2.0)",
+        "frailty_normal_sd": 0.25,
+        "used_for": "infection_arrival_and_abrupt_shock_probability",
+        "baseline_sensor_values_conditioned_on_profile": false,
+        "clinical_risk_model": false
+      },
+      "rationale": "Hypothetical demographic associations for fictional profiles; no fitted clinical risk coefficients.",
+      "clinically_validated": false
+    },
+    {
+      "id": "abrupt_deterioration_process",
+      "units": "per_day_and_amplitude",
+      "evidence_ids": [
+        "SEEMUNGAL"
+      ],
+      "status": "engineering_assumption",
+      "value": {
+        "arrival_probability_per_day": 0.001,
+        "amplitude_uniform": [
+          2.2,
+          3.2
+        ],
+        "profile_multiplier": "baseline_vulnerability",
+        "scheduled_event_dates": false
+      },
+      "rationale": "Allows abrupt crossings without a required warning ramp; rate/amplitude assumed.",
+      "clinically_validated": false
+    },
+    {
+      "id": "symptom_onset_rule",
+      "units": "symptom_scale_and_days",
+      "evidence_ids": [
+        "ROME"
+      ],
+      "status": "engineering_assumption",
+      "value": {
+        "dyspnea": "max(0,burden+N(0,0.12))",
+        "cough": "max(0,0.9*burden+N(0,0.15))",
+        "dyspnea_worsening_threshold": 2.0,
+        "cough_worsening_threshold": 1.5,
+        "require_both": true,
+        "confirmation_consecutive_days": 2,
+        "onset_date": "first_of_two_qualifying_days",
+        "classification_etiology": "respiratory_process_only",
+        "mimic_symptoms_added_only_to_reported_observations": true,
+        "scale_is_arbitrary_not_CAT_or_mMRC": true,
+        "retroactive_predictor_modification": false
+      },
+      "rationale": "Two-day confirmation is qualitatively informed by the Hurst symptom-defined study; synthetic score equations and cutoffs are engineering choices.",
+      "clinically_validated": false
+    },
+    {
+      "id": "episode_resolution_and_recurrence",
+      "units": "days_and_thresholds",
+      "evidence_ids": [
+        "SEEMUNGAL"
+      ],
+      "status": "engineering_assumption",
+      "value": {
+        "dyspnea_below": 0.75,
+        "cough_below": 0.75,
+        "consecutive_days": 3,
+        "resolution_date": "third_qualifying_day",
+        "new_episode_earliest": "following_day",
+        "fixed_refractory_days": 0,
+        "early_recurrence_allowed": true,
+        "prior_care_cleared_on_resolution": true
+      },
+      "rationale": "Three low-score days define resolution in this synthetic scale; not a validated recovery duration.",
+      "clinically_validated": false
+    },
+    {
+      "id": "sensor_response_and_lags",
+      "units": "channel_units_and_days",
+      "evidence_ids": [
+        "HURST"
+      ],
+      "status": "engineering_assumption",
+      "value": {
+        "amplitude_per_burden_unit": {
+          "spo2_pct": -0.7,
+          "heart_rate_bpm": 4.0,
+          "respiratory_rate_per_min": 0.8,
+          "sleep_hours": -0.25,
+          "gait_speed_m_per_s": -0.06
+        },
+        "lag_days": {
+          "spo2_pct": 1,
+          "heart_rate_bpm": 0,
+          "respiratory_rate_per_min": 0,
+          "sleep_hours": 1,
+          "gait_speed_m_per_s": 1
+        },
+        "patient_response_lognormal_sigma": 0.25,
+        "lognormal_mean_correction": true,
+        "weak_response_patient_fraction": 0.2,
+        "weak_response_multiplier": 0.2,
+        "absent_response_patient_fraction": 0.05,
+        "absent_response_multiplier": 0.0,
+        "fractions_are_disjoint_and_drawn_at_initialization": true,
+        "event_day_ramps_backfilled": false
+      },
+      "rationale": "Qualitative direction only is evidence-informed. All amplitudes, lags and warning-group fractions are assumed.",
+      "clinically_validated": false
+    },
+    {
+      "id": "observation_dispersion",
+      "units": "channel_units",
+      "evidence_ids": [
+        "HURST"
+      ],
+      "status": "descriptive_reference_with_engineering_mapping",
+      "value": {
+        "reference": "calibration.channels.*.reference_sd_used",
+        "population": "all_observed_training_days_not_stable_days",
+        "between_patient_baseline": "independent_draw_per_channel_from_empirical_patient_median_pool",
+        "intrinsic_AR_rho": 0.3,
+        "shared_standardized_innovation_correlation": 0.2,
+        "shared_innovation_channels": [
+          "spo2_pct",
+          "heart_rate_bpm",
+          "respiratory_rate_per_min",
+          "sleep_hours",
+          "gait_speed_m_per_s"
+        ],
+        "AQI_separate_exposure_process_not_second_background_AR": true,
+        "event_free_variance_partition": "intrinsic=(1-device_variance_fraction)*reference_sd^2;device=device_variance_fraction*reference_sd^2",
+        "variance_is_not_refitted_to_events": true
+      },
+      "rationale": "Patient-weighted descriptive SDs include illness and biology; empirical baseline pools plus variance mapping are assumptions.",
+      "clinically_validated": false
+    },
+    {
+      "id": "device_error_and_bias",
+      "units": "channel_units",
+      "evidence_ids": [
+        "HURST"
+      ],
+      "status": "engineering_assumption",
+      "value": {
+        "device_variance_fraction": 0.25,
+        "fixed_bias_sd_in_reference_sd_units": 0.1,
+        "bounds": {
+          "spo2_pct": [
+            75.0,
+            100.0
+          ],
+          "heart_rate_bpm": [
+            35.0,
+            180.0
+          ],
+          "respiratory_rate_per_min": [
+            6.0,
+            45.0
+          ],
+          "sleep_hours": [
+            0.0,
+            12.0
+          ],
+          "gait_speed_m_per_s": [
+            0.0,
+            3.0
+          ],
+          "aqi_index": [
+            0.0,
+            500.0
+          ]
+        },
+        "identified_from_training": false,
+        "clipping_is_engineering_not_diagnostic": true
+      },
+      "rationale": "Device/biological separation, bias and bounds cannot be identified here; explicitly hypothetical.",
+      "clinically_validated": false
+    },
+    {
+      "id": "benign_and_mimic_process",
+      "units": "per_day_and_amplitude",
+      "evidence_ids": [
+        "HURST"
+      ],
+      "status": "engineering_assumption",
+      "value": {
+        "arrival_probability_per_day": 0.015,
+        "duration_days_inclusive": [
+          1,
+          4
+        ],
+        "amplitude_uniform": [
+          0.5,
+          2.0
+        ],
+        "rho_during_decay": 0.5,
+        "sensor_loading_per_context_unit": {
+          "spo2_pct": -0.6,
+          "heart_rate_bpm": 4.0,
+          "respiratory_rate_per_min": 0.8,
+          "sleep_hours": -0.3,
+          "gait_speed_m_per_s": -0.04
+        },
+        "reported_symptom_loading": {
+          "dyspnea": 1.0,
+          "cough": 0.8
+        },
+        "underlying_respiratory_burden_effect": 0.0,
+        "cause_identity_private": true,
+        "clinical_mimic_diagnosis": false
+      },
+      "rationale": "Non-target overlapping changes prevent perfect event separation; assumed context process.",
+      "clinically_validated": false
+    },
+    {
+      "id": "missingness_and_dropout",
+      "units": "probability_and_days",
+      "evidence_ids": [
+        "TOLIFE"
+      ],
+      "status": "descriptive_reference_with_engineering_mapping",
+      "value": {
+        "default": "source_calendar_reference_Markov",
+        "daily_observation_probability": 0.85,
+        "illness_missing_odds_multiplier": 1.0,
+        "illness_score_threshold": 1.0,
+        "transition_reference": "calibration.channels.*.p_observed_after_missing,p_missing_after_observed",
+        "initial_state": "stationary_Markov_distribution",
+        "shared_mask_groups": [
+          [
+            "spo2_pct",
+            "heart_rate_bpm"
+          ]
+        ],
+        "other_masks": "independent_assumption",
+        "additional_device_dropout_probability": 0.0,
+        "symptom_reporting_probability": 0.7,
+        "reported_symptom_noise_sd": 0.5,
+        "report_delay_values_days": [
+          0,
+          1,
+          2
+        ],
+        "report_delay_probabilities": [
+          0.8,
+          0.15,
+          0.05
+        ],
+        "historical_reports_enter_only_at_release_time": true,
+        "gap_probabilities_are_not_device_failure_estimates": true
+      },
+      "rationale": "Transitions summarize training calendars. Markov approximation, independent masks, reporting and release delay are assumptions.",
+      "clinically_validated": false
+    },
+    {
+      "id": "care_access_delay",
+      "units": "days",
+      "evidence_ids": [
+        "EMEUSE"
+      ],
+      "status": "engineering_assumption",
+      "value": {
+        "willingness_probability_per_episode": 0.75,
+        "delay_days": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "delay_probabilities": [
+          0.15,
+          0.2,
+          0.25,
+          0.2,
+          0.1,
+          0.05,
+          0.03,
+          0.02
+        ],
+        "anchor": "onset_confirmation_day",
+        "care_is_scheduled_only_after_observed_in_simulator_confirmation": true,
+        "release_day": "actual_care_day"
+      },
+      "rationale": "Synthetic willingness and delay distribution; not inferred from TOLIFE or unavailable restricted data.",
+      "clinically_validated": false
+    },
+    {
+      "id": "care_category_assignment",
+      "units": "categorical",
+      "evidence_ids": [
+        "ROME"
+      ],
+      "status": "engineering_assumption",
+      "value": {
+        "moderate": "willing_and_reached_consultation_day_while_episode_active",
+        "severe": "willing_and_current_dyspnea_score_at_least_4_while_episode_active_after_confirmation",
+        "severe_dyspnea_threshold": 4.0,
+        "category_precedence": [
+          "severe",
+          "moderate",
+          "untreated_or_mild"
+        ],
+        "upgrade_within_cap": true,
+        "one_episode_ID_across_upgrade": true,
+        "scheme": "simulated_care_proxy_not_Rome",
+        "clinical_prescription_or_treatment_decision": false,
+        "consultation_record_kind": "fictional_antibiotic_or_systemic_steroid_care_category_without_drug_or_dose"
+      },
+      "rationale": "Deterministic fictional pathway categories; not clinical severity cutoffs or prescribing advice.",
+      "clinically_validated": false
+    },
+    {
+      "id": "label_maturation_cap",
+      "units": "days_after_onset",
+      "evidence_ids": [
+        "EMEUSE"
+      ],
+      "status": "engineering_assumption",
+      "value": {
+        "days_after_first_symptom_onset": 14,
+        "category_close": "onset_day+14",
+        "forecast_horizon_days": 7,
+        "maximum_required_ascertainment_after_prediction_days": 21,
+        "unobserved_cap_category": "unknown",
+        "unconfirmed_tail_candidate": "unknown",
+        "additional_label_followup_days": 21
+      },
+      "rationale": "Fourteen-day classification policy plus seven-day horizon requires 21-day outcome ascertainment; not a clinical rule.",
+      "clinically_validated": false
+    },
+    {
+      "id": "intervention_response",
+      "units": "latent_units",
+      "evidence_ids": [
+        "COPE"
+      ],
+      "status": "engineering_assumption",
+      "value": {
+        "care_burden_decay_increment": 0.0,
+        "default_exposure_burden_beta": 0.0,
+        "treatment_benefit_identified": false,
+        "reported_counterfactual_status": "assumption_only_not_clinical_effect",
+        "paired_scenarios_reuse_exogenous_draws": true,
+        "care_changes_apply_only_to_following_day": true
+      },
+      "rationale": "Baseline benefits set to zero; no treatment or exposure reduction efficacy inferred.",
+      "clinically_validated": false
+    },
+    {
+      "id": "population_and_sensor_transfer",
+      "units": "mapping",
+      "evidence_ids": [
+        "TOLIFE"
+      ],
+      "status": "engineering_assumption",
+      "value": {
+        "profiles": "8421_surviving_fictional_Kaggle_profiles_as_preserved_in_v1",
+        "profile_file": "data/processed/synthetic_copd_v1/patients.csv",
+        "sensor_reference": "independent_training_patient_median_pools_not_linked_real_patients",
+        "joint_profile_sensor_distribution_identified": false,
+        "monitoring_contexts": "spot_spO2_and_HR_nightly_respiration_and_sleep_sleep_environment_AQI_gait_index",
+        "candidate_observed_inputs": [
+          "spo2_pct",
+          "heart_rate_bpm",
+          "respiratory_rate_per_min",
+          "sleep_hours",
+          "aqi_index",
+          "gait_speed_m_per_s",
+          "reported_dyspnea_change",
+          "reported_cough_change"
+        ],
+        "core_channels": [
+          "spo2_pct",
+          "heart_rate_bpm",
+          "respiratory_rate_per_min"
+        ],
+        "known_care_and_released_symptoms_for_runtime_gate_only": true,
+        "Indian_representativeness_established": false
+      },
+      "rationale": "Source contexts remain named; independent empirical draws on fictional profiles are an unvalidated transfer.",
+      "clinically_validated": false
+    },
+    {
+      "id": "spirometry_unit_confirmation",
+      "units": "mapping",
+      "evidence_ids": [
+        "TOLIFE"
+      ],
+      "status": "excluded",
+      "value": {
+        "decision": "exclude_unconfirmed_channels",
+        "excluded_inputs": [
+          "pef_l_per_min",
+          "fev1_l"
+        ],
+        "units_confirmed": false,
+        "converted_values_created": false,
+        "reason": "PEF unit-magnitude discrepancy unresolved; preserve raw source and omit both spirometry channels from this version."
+      },
+      "rationale": "Resolution by documented exclusion rather than asserting corrected units.",
+      "clinically_validated": false
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "source_reference",
+      "overrides": {},
+      "role": "default",
+      "interpretation": "Sparse source-calendar-inspired monitoring; not device failure rates."
+    },
+    {
+      "name": "weak_or_absent_warning",
+      "overrides": {
+        "sensor_response_and_lags.weak_response_patient_fraction": 0.4,
+        "sensor_response_and_lags.absent_response_patient_fraction": 0.3,
+        "sensor_response_and_lags.weak_response_multiplier": 0.1,
+        "abrupt_deterioration_process.arrival_probability_per_day": 0.002
+      },
+      "role": "test_only",
+      "interpretation": "Weaker sensors and more abrupt state changes; do not choose this fraction from performance."
+    },
+    {
+      "name": "null_exposure_effect",
+      "overrides": {
+        "exposure_burden_effect.beta_per_100_AQI_above_100": 0.0
+      },
+      "role": "test_only",
+      "interpretation": "Default is already null: paired trajectories must match the default exactly."
+    },
+    {
+      "name": "stronger_benign_or_mimic_variation",
+      "overrides": {
+        "benign_and_mimic_process.arrival_probability_per_day": 0.03,
+        "benign_and_mimic_process.amplitude_uniform": [
+          1.0,
+          3.0
+        ]
+      },
+      "role": "test_only",
+      "interpretation": "Increase overlapping non-target deterioration."
+    },
+    {
+      "name": "illness_related_missingness",
+      "overrides": {
+        "missingness_and_dropout.illness_missing_odds_multiplier": 3.0,
+        "missingness_and_dropout.symptom_reporting_probability": 0.4
+      },
+      "role": "test_only",
+      "interpretation": "Conditional missing odds are tripled once current latent dyspnea reaches 1; no future state is used."
+    },
+    {
+      "name": "sensor_bias_or_different_device",
+      "overrides": {
+        "device_error_and_bias.device_variance_fraction": 0.5,
+        "device_error_and_bias.fixed_bias_sd_in_reference_sd_units": 0.5
+      },
+      "role": "test_only",
+      "interpretation": "Different assumed device-noise partition and bias; total stationary residual variance stays anchored."
+    },
+    {
+      "name": "different_care_access_delay",
+      "overrides": {
+        "care_access_delay.delay_days": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ],
+        "care_access_delay.delay_probabilities": [
+          0.05,
+          0.1,
+          0.15,
+          0.2,
+          0.2,
+          0.15,
+          0.1,
+          0.05
+        ]
+      },
+      "role": "test_only",
+      "interpretation": "Delayed care affects care-proxy endpoints and category maturity, not past physiology."
+    },
+    {
+      "name": "different_incidence_and_recurrence",
+      "overrides": {
+        "infection_arrival_and_duration.arrival_probability_per_day": 0.02,
+        "episode_resolution_and_recurrence.consecutive_days": 2
+      },
+      "role": "test_only",
+      "interpretation": "More driving shocks and earlier synthetic resolution; event incidence is not forced to a chosen rate."
+    },
+    {
+      "name": "denser_assumed_monitoring",
+      "overrides": {
+        "missingness_and_dropout.default": "hypothetical_daily_Bernoulli",
+        "missingness_and_dropout.daily_observation_probability": 0.85
+      },
+      "role": "test_only",
+      "interpretation": "An explicitly hypothetical service/device workflow; do not call it measured TOLIFE availability."
+    },
+    {
+      "name": "hypothetical_exposure_effect",
+      "overrides": {
+        "exposure_burden_effect.beta_per_100_AQI_above_100": 0.04
+      },
+      "role": "test_only",
+      "interpretation": "Equation-dependent exposure effect, not an identified clinical benefit."
+    },
+    {
+      "name": "shorter_memory",
+      "overrides": {
+        "burden_persistence.rho": 0.65
+      },
+      "role": "test_only",
+      "interpretation": "Less persistent burden."
+    },
+    {
+      "name": "longer_memory",
+      "overrides": {
+        "burden_persistence.rho": 0.93
+      },
+      "role": "test_only",
+      "interpretation": "More persistent burden."
+    },
+    {
+      "name": "lower_onset_threshold",
+      "overrides": {
+        "symptom_onset_rule.dyspnea_worsening_threshold": 1.5,
+        "symptom_onset_rule.cough_worsening_threshold": 1.0
+      },
+      "role": "test_only",
+      "interpretation": "Alternate arbitrary scale cutoff; results have a different simulated endpoint specification."
+    },
+    {
+      "name": "higher_onset_threshold",
+      "overrides": {
+        "symptom_onset_rule.dyspnea_worsening_threshold": 2.5,
+        "symptom_onset_rule.cough_worsening_threshold": 2.0
+      },
+      "role": "test_only",
+      "interpretation": "Alternate cutoff; cannot replace the primary configuration because its score is higher."
+    },
+    {
+      "name": "longer_category_ascertainment",
+      "overrides": {
+        "label_maturation_cap.days_after_first_symptom_onset": 21,
+        "label_maturation_cap.maximum_required_ascertainment_after_prediction_days": 28,
+        "label_maturation_cap.additional_label_followup_days": 28
+      },
+      "role": "test_only",
+      "interpretation": "Alternate care-category policy and complete followup; not identical target semantics."
+    },
+    {
+      "name": "assumed_care_response",
+      "overrides": {
+        "intervention_response.care_burden_decay_increment": 0.05
+      },
+      "role": "test_only",
+      "interpretation": "After any simulated care, subtract 0.05 from rho on following active-episode days only; wholly hypothetical."
+    }
+  ],
+  "scenario_selection_policy": "Run and report every named variant on heldout simulation patients; no selection by highest predictive performance. Alternate endpoint scenarios stay separately labelled.",
+  "required_before_generation": [
+    "implemented_generator",
+    "independent_generator_verifier",
+    "prefix_invariance_and_rng_tests",
+    "timestamp_and_label_maturation_tests",
+    "two_identical_builds",
+    "predictability_audit_before_model_training"
+  ],
+  "source_calibrator_sha256": "f20cc4d59d3d55905d321055046e1b111b6b6a640b4b6a23330e6f97b7e7ddad",
+  "source_builder_sha256": "c92d7be383a36d84988d907ca24759910f6ce029197df552ec87cd5e934a3e5b"
+}

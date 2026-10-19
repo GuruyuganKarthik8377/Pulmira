@@ -1,0 +1,1313 @@
+{
+  "partial": {
+    "schema_version": "pulmira-outlook7-1.0.0",
+    "method_version": "pulmira-outlook7-rules-1.0.0",
+    "patient_id": "DEMO-SYNTHETIC-002",
+    "data_origin": "synthetic",
+    "as_of": "2025-01-04T12:05:00Z",
+    "horizon_days": 7,
+    "window_start": "2025-01-05",
+    "window_end": "2025-01-11",
+    "method": "formula_based_trend_projection",
+    "status": "partial",
+    "clinical_validation": false,
+    "predictive_accuracy": null,
+    "is_probability": false,
+    "probability_next_7_days": null,
+    "score_unit": "points_out_of_100",
+    "score_meaning": "Projected change from an observed historical reference under an unchanged-trend assumption; not exacerbation probability or absolute illness severity.",
+    "score_min": 87.0,
+    "score_max": 94.0,
+    "score_band": "elevated_change",
+    "known_weight": 93,
+    "unknown_weight": 7,
+    "eligible_channels": [
+      "spo2_pct",
+      "respiratory_rate_per_min",
+      "heart_rate_bpm"
+    ],
+    "reasons": [],
+    "days": [
+      {
+        "day": 1,
+        "date": "2025-01-05",
+        "score_min": 65.25,
+        "score_max": 72.25,
+        "score_band": "elevated_change",
+        "projected_values": {
+          "spo2_pct": 95.25,
+          "respiratory_rate_per_min": 23.5,
+          "heart_rate_bpm": 114
+        },
+        "components": [
+          {
+            "factor": "spo2_pct",
+            "weight": 40,
+            "minimum": 27.5,
+            "maximum": 27.5,
+            "projected_value": 95.25,
+            "value_capped": false,
+            "source_key": "[\"spo2_pct\",\"fictional_wristband\",\"DEMO\",\"spo2_pct\"]"
+          },
+          {
+            "factor": "respiratory_rate_per_min",
+            "weight": 20,
+            "minimum": 13.75,
+            "maximum": 13.75,
+            "projected_value": 23.5,
+            "value_capped": false,
+            "source_key": "[\"respiratory_rate_per_min\",\"fictional_wristband\",\"DEMO\",\"respiratory_rate_per_min\"]"
+          },
+          {
+            "factor": "heart_rate_bpm",
+            "weight": 15,
+            "minimum": 12.0,
+            "maximum": 12.0,
+            "projected_value": 114,
+            "value_capped": false,
+            "source_key": "[\"heart_rate_bpm\",\"fictional_wristband\",\"DEMO\",\"heart_rate_bpm\"]"
+          },
+          {
+            "factor": "dyspnea_worse_than_usual",
+            "weight": 12,
+            "minimum": 12.0,
+            "maximum": 12.0,
+            "held_constant": true
+          },
+          {
+            "factor": "cough_worse_than_usual",
+            "weight": 6,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "held_constant": true
+          },
+          {
+            "factor": "sputum_change",
+            "weight": 7,
+            "minimum": 0.0,
+            "maximum": 7.0,
+            "held_constant": true
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "date": "2025-01-06",
+        "score_min": 78.5,
+        "score_max": 85.5,
+        "score_band": "elevated_change",
+        "projected_values": {
+          "spo2_pct": 94.5,
+          "respiratory_rate_per_min": 25.0,
+          "heart_rate_bpm": 118
+        },
+        "components": [
+          {
+            "factor": "spo2_pct",
+            "weight": 40,
+            "minimum": 35.0,
+            "maximum": 35.0,
+            "projected_value": 94.5,
+            "value_capped": false,
+            "source_key": "[\"spo2_pct\",\"fictional_wristband\",\"DEMO\",\"spo2_pct\"]"
+          },
+          {
+            "factor": "respiratory_rate_per_min",
+            "weight": 20,
+            "minimum": 17.5,
+            "maximum": 17.5,
+            "projected_value": 25.0,
+            "value_capped": false,
+            "source_key": "[\"respiratory_rate_per_min\",\"fictional_wristband\",\"DEMO\",\"respiratory_rate_per_min\"]"
+          },
+          {
+            "factor": "heart_rate_bpm",
+            "weight": 15,
+            "minimum": 14.0,
+            "maximum": 14.0,
+            "projected_value": 118,
+            "value_capped": false,
+            "source_key": "[\"heart_rate_bpm\",\"fictional_wristband\",\"DEMO\",\"heart_rate_bpm\"]"
+          },
+          {
+            "factor": "dyspnea_worse_than_usual",
+            "weight": 12,
+            "minimum": 12.0,
+            "maximum": 12.0,
+            "held_constant": true
+          },
+          {
+            "factor": "cough_worse_than_usual",
+            "weight": 6,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "held_constant": true
+          },
+          {
+            "factor": "sputum_change",
+            "weight": 7,
+            "minimum": 0.0,
+            "maximum": 7.0,
+            "held_constant": true
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "date": "2025-01-07",
+        "score_min": 87.0,
+        "score_max": 94.0,
+        "score_band": "elevated_change",
+        "projected_values": {
+          "spo2_pct": 93.75,
+          "respiratory_rate_per_min": 26.5,
+          "heart_rate_bpm": 122
+        },
+        "components": [
+          {
+            "factor": "spo2_pct",
+            "weight": 40,
+            "minimum": 40,
+            "maximum": 40,
+            "projected_value": 93.75,
+            "value_capped": false,
+            "source_key": "[\"spo2_pct\",\"fictional_wristband\",\"DEMO\",\"spo2_pct\"]"
+          },
+          {
+            "factor": "respiratory_rate_per_min",
+            "weight": 20,
+            "minimum": 20,
+            "maximum": 20,
+            "projected_value": 26.5,
+            "value_capped": false,
+            "source_key": "[\"respiratory_rate_per_min\",\"fictional_wristband\",\"DEMO\",\"respiratory_rate_per_min\"]"
+          },
+          {
+            "factor": "heart_rate_bpm",
+            "weight": 15,
+            "minimum": 15,
+            "maximum": 15,
+            "projected_value": 122,
+            "value_capped": false,
+            "source_key": "[\"heart_rate_bpm\",\"fictional_wristband\",\"DEMO\",\"heart_rate_bpm\"]"
+          },
+          {
+            "factor": "dyspnea_worse_than_usual",
+            "weight": 12,
+            "minimum": 12.0,
+            "maximum": 12.0,
+            "held_constant": true
+          },
+          {
+            "factor": "cough_worse_than_usual",
+            "weight": 6,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "held_constant": true
+          },
+          {
+            "factor": "sputum_change",
+            "weight": 7,
+            "minimum": 0.0,
+            "maximum": 7.0,
+            "held_constant": true
+          }
+        ]
+      },
+      {
+        "day": 4,
+        "date": "2025-01-08",
+        "score_min": 87.0,
+        "score_max": 94.0,
+        "score_band": "elevated_change",
+        "projected_values": {
+          "spo2_pct": 93.0,
+          "respiratory_rate_per_min": 28.0,
+          "heart_rate_bpm": 126
+        },
+        "components": [
+          {
+            "factor": "spo2_pct",
+            "weight": 40,
+            "minimum": 40,
+            "maximum": 40,
+            "projected_value": 93.0,
+            "value_capped": false,
+            "source_key": "[\"spo2_pct\",\"fictional_wristband\",\"DEMO\",\"spo2_pct\"]"
+          },
+          {
+            "factor": "respiratory_rate_per_min",
+            "weight": 20,
+            "minimum": 20,
+            "maximum": 20,
+            "projected_value": 28.0,
+            "value_capped": false,
+            "source_key": "[\"respiratory_rate_per_min\",\"fictional_wristband\",\"DEMO\",\"respiratory_rate_per_min\"]"
+          },
+          {
+            "factor": "heart_rate_bpm",
+            "weight": 15,
+            "minimum": 15,
+            "maximum": 15,
+            "projected_value": 126,
+            "value_capped": false,
+            "source_key": "[\"heart_rate_bpm\",\"fictional_wristband\",\"DEMO\",\"heart_rate_bpm\"]"
+          },
+          {
+            "factor": "dyspnea_worse_than_usual",
+            "weight": 12,
+            "minimum": 12.0,
+            "maximum": 12.0,
+            "held_constant": true
+          },
+          {
+            "factor": "cough_worse_than_usual",
+            "weight": 6,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "held_constant": true
+          },
+          {
+            "factor": "sputum_change",
+            "weight": 7,
+            "minimum": 0.0,
+            "maximum": 7.0,
+            "held_constant": true
+          }
+        ]
+      },
+      {
+        "day": 5,
+        "date": "2025-01-09",
+        "score_min": 87.0,
+        "score_max": 94.0,
+        "score_band": "elevated_change",
+        "projected_values": {
+          "spo2_pct": 92.25,
+          "respiratory_rate_per_min": 29.5,
+          "heart_rate_bpm": 130
+        },
+        "components": [
+          {
+            "factor": "spo2_pct",
+            "weight": 40,
+            "minimum": 40,
+            "maximum": 40,
+            "projected_value": 92.25,
+            "value_capped": false,
+            "source_key": "[\"spo2_pct\",\"fictional_wristband\",\"DEMO\",\"spo2_pct\"]"
+          },
+          {
+            "factor": "respiratory_rate_per_min",
+            "weight": 20,
+            "minimum": 20,
+            "maximum": 20,
+            "projected_value": 29.5,
+            "value_capped": false,
+            "source_key": "[\"respiratory_rate_per_min\",\"fictional_wristband\",\"DEMO\",\"respiratory_rate_per_min\"]"
+          },
+          {
+            "factor": "heart_rate_bpm",
+            "weight": 15,
+            "minimum": 15,
+            "maximum": 15,
+            "projected_value": 130,
+            "value_capped": false,
+            "source_key": "[\"heart_rate_bpm\",\"fictional_wristband\",\"DEMO\",\"heart_rate_bpm\"]"
+          },
+          {
+            "factor": "dyspnea_worse_than_usual",
+            "weight": 12,
+            "minimum": 12.0,
+            "maximum": 12.0,
+            "held_constant": true
+          },
+          {
+            "factor": "cough_worse_than_usual",
+            "weight": 6,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "held_constant": true
+          },
+          {
+            "factor": "sputum_change",
+            "weight": 7,
+            "minimum": 0.0,
+            "maximum": 7.0,
+            "held_constant": true
+          }
+        ]
+      },
+      {
+        "day": 6,
+        "date": "2025-01-10",
+        "score_min": 87.0,
+        "score_max": 94.0,
+        "score_band": "elevated_change",
+        "projected_values": {
+          "spo2_pct": 91.5,
+          "respiratory_rate_per_min": 31.0,
+          "heart_rate_bpm": 134
+        },
+        "components": [
+          {
+            "factor": "spo2_pct",
+            "weight": 40,
+            "minimum": 40,
+            "maximum": 40,
+            "projected_value": 91.5,
+            "value_capped": false,
+            "source_key": "[\"spo2_pct\",\"fictional_wristband\",\"DEMO\",\"spo2_pct\"]"
+          },
+          {
+            "factor": "respiratory_rate_per_min",
+            "weight": 20,
+            "minimum": 20,
+            "maximum": 20,
+            "projected_value": 31.0,
+            "value_capped": false,
+            "source_key": "[\"respiratory_rate_per_min\",\"fictional_wristband\",\"DEMO\",\"respiratory_rate_per_min\"]"
+          },
+          {
+            "factor": "heart_rate_bpm",
+            "weight": 15,
+            "minimum": 15,
+            "maximum": 15,
+            "projected_value": 134,
+            "value_capped": false,
+            "source_key": "[\"heart_rate_bpm\",\"fictional_wristband\",\"DEMO\",\"heart_rate_bpm\"]"
+          },
+          {
+            "factor": "dyspnea_worse_than_usual",
+            "weight": 12,
+            "minimum": 12.0,
+            "maximum": 12.0,
+            "held_constant": true
+          },
+          {
+            "factor": "cough_worse_than_usual",
+            "weight": 6,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "held_constant": true
+          },
+          {
+            "factor": "sputum_change",
+            "weight": 7,
+            "minimum": 0.0,
+            "maximum": 7.0,
+            "held_constant": true
+          }
+        ]
+      },
+      {
+        "day": 7,
+        "date": "2025-01-11",
+        "score_min": 87.0,
+        "score_max": 94.0,
+        "score_band": "elevated_change",
+        "projected_values": {
+          "spo2_pct": 90.75,
+          "respiratory_rate_per_min": 32.5,
+          "heart_rate_bpm": 138
+        },
+        "components": [
+          {
+            "factor": "spo2_pct",
+            "weight": 40,
+            "minimum": 40,
+            "maximum": 40,
+            "projected_value": 90.75,
+            "value_capped": false,
+            "source_key": "[\"spo2_pct\",\"fictional_wristband\",\"DEMO\",\"spo2_pct\"]"
+          },
+          {
+            "factor": "respiratory_rate_per_min",
+            "weight": 20,
+            "minimum": 20,
+            "maximum": 20,
+            "projected_value": 32.5,
+            "value_capped": false,
+            "source_key": "[\"respiratory_rate_per_min\",\"fictional_wristband\",\"DEMO\",\"respiratory_rate_per_min\"]"
+          },
+          {
+            "factor": "heart_rate_bpm",
+            "weight": 15,
+            "minimum": 15,
+            "maximum": 15,
+            "projected_value": 138,
+            "value_capped": false,
+            "source_key": "[\"heart_rate_bpm\",\"fictional_wristband\",\"DEMO\",\"heart_rate_bpm\"]"
+          },
+          {
+            "factor": "dyspnea_worse_than_usual",
+            "weight": 12,
+            "minimum": 12.0,
+            "maximum": 12.0,
+            "held_constant": true
+          },
+          {
+            "factor": "cough_worse_than_usual",
+            "weight": 6,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "held_constant": true
+          },
+          {
+            "factor": "sputum_change",
+            "weight": 7,
+            "minimum": 0.0,
+            "maximum": 7.0,
+            "held_constant": true
+          }
+        ]
+      }
+    ],
+    "streams": [
+      {
+        "key": "[\"heart_rate_bpm\",\"fictional_wristband\",\"DEMO\",\"heart_rate_bpm\"]",
+        "channel": "heart_rate_bpm",
+        "context": "fictional_wristband",
+        "source_series_id": "heart_rate_bpm",
+        "device_id": "DEMO",
+        "units": "bpm",
+        "eligible": true,
+        "reasons": [],
+        "observed_days": 4,
+        "span_days": 3,
+        "latest_measurement_end": "2025-01-04T12:00:00Z",
+        "latest_available_at": "2025-01-04T12:00:00Z",
+        "measurement_age_hours": 0.08333333333333333,
+        "last_day": "2025-01-04",
+        "current_daily_median": 110,
+        "reference_median": 90,
+        "raw_slope_per_day": 10.0,
+        "used_slope_per_day": 4,
+        "slope_capped": true,
+        "weight": 15,
+        "change_scale": 30,
+        "selected": true,
+        "observed_daily_values": [
+          {
+            "date": "2025-01-01",
+            "value": 80
+          },
+          {
+            "date": "2025-01-02",
+            "value": 90
+          },
+          {
+            "date": "2025-01-03",
+            "value": 100
+          },
+          {
+            "date": "2025-01-04",
+            "value": 110
+          }
+        ],
+        "observation_ids": [
+          "heart_rate_bpm-0",
+          "heart_rate_bpm-1",
+          "heart_rate_bpm-2",
+          "heart_rate_bpm-3"
+        ],
+        "time_evidence": [
+          "synthetic_generated"
+        ]
+      },
+      {
+        "key": "[\"respiratory_rate_per_min\",\"fictional_wristband\",\"DEMO\",\"respiratory_rate_per_min\"]",
+        "channel": "respiratory_rate_per_min",
+        "context": "fictional_wristband",
+        "source_series_id": "respiratory_rate_per_min",
+        "device_id": "DEMO",
+        "units": "breaths_per_min",
+        "eligible": true,
+        "reasons": [],
+        "observed_days": 4,
+        "span_days": 3,
+        "latest_measurement_end": "2025-01-04T12:00:00Z",
+        "latest_available_at": "2025-01-04T12:00:00Z",
+        "measurement_age_hours": 0.08333333333333333,
+        "last_day": "2025-01-04",
+        "current_daily_median": 22,
+        "reference_median": 18,
+        "raw_slope_per_day": 2.0,
+        "used_slope_per_day": 1.5,
+        "slope_capped": true,
+        "weight": 20,
+        "change_scale": 8,
+        "selected": true,
+        "observed_daily_values": [
+          {
+            "date": "2025-01-01",
+            "value": 16
+          },
+          {
+            "date": "2025-01-02",
+            "value": 18
+          },
+          {
+            "date": "2025-01-03",
+            "value": 20
+          },
+          {
+            "date": "2025-01-04",
+            "value": 22
+          }
+        ],
+        "observation_ids": [
+          "respiratory_rate_per_min-0",
+          "respiratory_rate_per_min-1",
+          "respiratory_rate_per_min-2",
+          "respiratory_rate_per_min-3"
+        ],
+        "time_evidence": [
+          "synthetic_generated"
+        ]
+      },
+      {
+        "key": "[\"spo2_pct\",\"fictional_wristband\",\"DEMO\",\"spo2_pct\"]",
+        "channel": "spo2_pct",
+        "context": "fictional_wristband",
+        "source_series_id": "spo2_pct",
+        "device_id": "DEMO",
+        "units": "percent",
+        "eligible": true,
+        "reasons": [],
+        "observed_days": 4,
+        "span_days": 3,
+        "latest_measurement_end": "2025-01-04T12:00:00Z",
+        "latest_available_at": "2025-01-04T12:00:00Z",
+        "measurement_age_hours": 0.08333333333333333,
+        "last_day": "2025-01-04",
+        "current_daily_median": 96,
+        "reference_median": 98,
+        "raw_slope_per_day": -1.0,
+        "used_slope_per_day": -0.75,
+        "slope_capped": true,
+        "weight": 40,
+        "change_scale": 4,
+        "selected": true,
+        "observed_daily_values": [
+          {
+            "date": "2025-01-01",
+            "value": 99
+          },
+          {
+            "date": "2025-01-02",
+            "value": 98
+          },
+          {
+            "date": "2025-01-03",
+            "value": 97
+          },
+          {
+            "date": "2025-01-04",
+            "value": 96
+          }
+        ],
+        "observation_ids": [
+          "spo2_pct-0",
+          "spo2_pct-1",
+          "spo2_pct-2",
+          "spo2_pct-3"
+        ],
+        "time_evidence": [
+          "synthetic_generated"
+        ]
+      }
+    ],
+    "symptoms": [
+      {
+        "field": "dyspnea_worse_than_usual",
+        "weight": 12,
+        "value": true
+      },
+      {
+        "field": "cough_worse_than_usual",
+        "weight": 6,
+        "value": false
+      },
+      {
+        "field": "sputum_change",
+        "weight": 7,
+        "value": null
+      }
+    ],
+    "diary": {
+      "status": "fresh",
+      "diary_id": "D1",
+      "collected_at": "2025-01-04T12:00:00Z",
+      "available_at": "2025-01-04T12:01:00Z"
+    },
+    "policy": {
+      "version": "pulmira-outlook7-rules-1.0.0",
+      "horizon_days": 7,
+      "lookback_days": 14,
+      "minimum_observed_days": 4,
+      "minimum_span_days": 3,
+      "maximum_measurement_age_hours": 48,
+      "maximum_diary_age_hours": 48,
+      "minimum_sensor_channels": 2,
+      "required_channel": "spo2_pct",
+      "score_bands": {
+        "moderate_from": 25,
+        "elevated_from": 50
+      },
+      "channels": {
+        "spo2_pct": {
+          "weight": 40,
+          "change_scale": 4,
+          "direction": -1,
+          "slope_cap": 0.75,
+          "minimum_value": 50,
+          "maximum_value": 100,
+          "units": "percent",
+          "context_priority": [
+            "fictional_wristband",
+            "spirometer_session"
+          ]
+        },
+        "respiratory_rate_per_min": {
+          "weight": 20,
+          "change_scale": 8,
+          "direction": 1,
+          "slope_cap": 1.5,
+          "minimum_value": 5,
+          "maximum_value": 60,
+          "units": "breaths_per_min",
+          "context_priority": [
+            "fictional_wristband",
+            "overnight_mattress"
+          ]
+        },
+        "heart_rate_bpm": {
+          "weight": 15,
+          "change_scale": 30,
+          "direction": 1,
+          "slope_cap": 4,
+          "minimum_value": 30,
+          "maximum_value": 220,
+          "units": "bpm",
+          "context_priority": [
+            "fictional_wristband",
+            "spirometer_session",
+            "overnight_mattress",
+            "daytime_wrist_PPG"
+          ]
+        }
+      },
+      "symptoms": {
+        "dyspnea_worse_than_usual": 12,
+        "cough_worse_than_usual": 6,
+        "sputum_change": 7
+      },
+      "clinical_validation": false,
+      "is_probability": false,
+      "predictive_accuracy_established": false,
+      "assumptions": [
+        "All weights, change scales, bands, gates and extrapolation limits are explicit engineering choices; they were not fitted or clinically validated.",
+        "The median pairwise slope over the last 14 UTC measurement days continues for seven future UTC dates, bounded by the configured slope and value limits.",
+        "The historical reference is the median of observed daily medians before the latest measurement day in that window; it is not a verified stable clinical baseline.",
+        "Symptoms available within 48 hours are held constant for the projection; their future course is not predicted.",
+        "Unknown sensor or symptom contributions span zero to their full weight. This is an input-completeness bound, not a confidence interval.",
+        "The score measures projected change from a personal historical reference, not absolute illness severity. A low score does not establish normal measurements or safety.",
+        "Separate source, device and context streams are never pooled. Stream selection uses fixed context priority, then recency and lexical identity, never the resulting score.",
+        "Historical source clocks can be assumed. Dates are an as-of scenario, not a live patient forecast. No treatment effect or event probability is supplied."
+      ],
+      "background_sources": [
+        {
+          "title": "The Rome Proposal (2021)",
+          "url": "https://academic.oup.com/ajrccm/article/204/11/1251/8492231",
+          "scope": "Background for symptoms and physiological variables only; not a source of this formula, weights or seven-day predictive validity."
+        },
+        {
+          "title": "NICE NG115",
+          "url": "https://www.nice.org.uk/guidance/ng115/chapter/recommendations",
+          "scope": "COPD clinical background only. This prototype is not a recommended clinical scoring tool."
+        }
+      ]
+    },
+    "policy_sha256": "dbd23a5947500a13f494142af42789784ff4efb3009b8e800bf73774c9502535",
+    "implementation_sha256": "e46127a0dcf39252f8576925ab6654f8821b90204bd4cb83630fb67773a946d8"
+  },
+  "unavailable": {
+    "schema_version": "pulmira-outlook7-1.0.0",
+    "method_version": "pulmira-outlook7-rules-1.0.0",
+    "patient_id": "DEMO-SYNTHETIC-002",
+    "data_origin": "synthetic",
+    "as_of": "2025-01-04T12:05:00Z",
+    "horizon_days": 7,
+    "window_start": "2025-01-05",
+    "window_end": "2025-01-11",
+    "method": "formula_based_trend_projection",
+    "status": "unavailable",
+    "clinical_validation": false,
+    "predictive_accuracy": null,
+    "is_probability": false,
+    "probability_next_7_days": null,
+    "score_unit": "points_out_of_100",
+    "score_meaning": "Projected change from an observed historical reference under an unchanged-trend assumption; not exacerbation probability or absolute illness severity.",
+    "score_min": null,
+    "score_max": null,
+    "score_band": "unavailable",
+    "known_weight": 18,
+    "unknown_weight": 82,
+    "eligible_channels": [],
+    "reasons": [
+      "eligible_spo2_history_required",
+      "at_least_two_eligible_sensor_channels_required"
+    ],
+    "days": [
+      {
+        "day": 1,
+        "date": "2025-01-05",
+        "score_min": null,
+        "score_max": null,
+        "score_band": "unavailable",
+        "projected_values": {
+          "spo2_pct": null,
+          "respiratory_rate_per_min": null,
+          "heart_rate_bpm": null
+        },
+        "components": [
+          {
+            "factor": "spo2_pct",
+            "weight": 40,
+            "minimum": 0.0,
+            "maximum": 40.0,
+            "projected_value": null,
+            "value_capped": false,
+            "source_key": null
+          },
+          {
+            "factor": "respiratory_rate_per_min",
+            "weight": 20,
+            "minimum": 0.0,
+            "maximum": 20.0,
+            "projected_value": null,
+            "value_capped": false,
+            "source_key": null
+          },
+          {
+            "factor": "heart_rate_bpm",
+            "weight": 15,
+            "minimum": 0.0,
+            "maximum": 15.0,
+            "projected_value": null,
+            "value_capped": false,
+            "source_key": null
+          },
+          {
+            "factor": "dyspnea_worse_than_usual",
+            "weight": 12,
+            "minimum": 12.0,
+            "maximum": 12.0,
+            "held_constant": true
+          },
+          {
+            "factor": "cough_worse_than_usual",
+            "weight": 6,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "held_constant": true
+          },
+          {
+            "factor": "sputum_change",
+            "weight": 7,
+            "minimum": 0.0,
+            "maximum": 7.0,
+            "held_constant": true
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "date": "2025-01-06",
+        "score_min": null,
+        "score_max": null,
+        "score_band": "unavailable",
+        "projected_values": {
+          "spo2_pct": null,
+          "respiratory_rate_per_min": null,
+          "heart_rate_bpm": null
+        },
+        "components": [
+          {
+            "factor": "spo2_pct",
+            "weight": 40,
+            "minimum": 0.0,
+            "maximum": 40.0,
+            "projected_value": null,
+            "value_capped": false,
+            "source_key": null
+          },
+          {
+            "factor": "respiratory_rate_per_min",
+            "weight": 20,
+            "minimum": 0.0,
+            "maximum": 20.0,
+            "projected_value": null,
+            "value_capped": false,
+            "source_key": null
+          },
+          {
+            "factor": "heart_rate_bpm",
+            "weight": 15,
+            "minimum": 0.0,
+            "maximum": 15.0,
+            "projected_value": null,
+            "value_capped": false,
+            "source_key": null
+          },
+          {
+            "factor": "dyspnea_worse_than_usual",
+            "weight": 12,
+            "minimum": 12.0,
+            "maximum": 12.0,
+            "held_constant": true
+          },
+          {
+            "factor": "cough_worse_than_usual",
+            "weight": 6,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "held_constant": true
+          },
+          {
+            "factor": "sputum_change",
+            "weight": 7,
+            "minimum": 0.0,
+            "maximum": 7.0,
+            "held_constant": true
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "date": "2025-01-07",
+        "score_min": null,
+        "score_max": null,
+        "score_band": "unavailable",
+        "projected_values": {
+          "spo2_pct": null,
+          "respiratory_rate_per_min": null,
+          "heart_rate_bpm": null
+        },
+        "components": [
+          {
+            "factor": "spo2_pct",
+            "weight": 40,
+            "minimum": 0.0,
+            "maximum": 40.0,
+            "projected_value": null,
+            "value_capped": false,
+            "source_key": null
+          },
+          {
+            "factor": "respiratory_rate_per_min",
+            "weight": 20,
+            "minimum": 0.0,
+            "maximum": 20.0,
+            "projected_value": null,
+            "value_capped": false,
+            "source_key": null
+          },
+          {
+            "factor": "heart_rate_bpm",
+            "weight": 15,
+            "minimum": 0.0,
+            "maximum": 15.0,
+            "projected_value": null,
+            "value_capped": false,
+            "source_key": null
+          },
+          {
+            "factor": "dyspnea_worse_than_usual",
+            "weight": 12,
+            "minimum": 12.0,
+            "maximum": 12.0,
+            "held_constant": true
+          },
+          {
+            "factor": "cough_worse_than_usual",
+            "weight": 6,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "held_constant": true
+          },
+          {
+            "factor": "sputum_change",
+            "weight": 7,
+            "minimum": 0.0,
+            "maximum": 7.0,
+            "held_constant": true
+          }
+        ]
+      },
+      {
+        "day": 4,
+        "date": "2025-01-08",
+        "score_min": null,
+        "score_max": null,
+        "score_band": "unavailable",
+        "projected_values": {
+          "spo2_pct": null,
+          "respiratory_rate_per_min": null,
+          "heart_rate_bpm": null
+        },
+        "components": [
+          {
+            "factor": "spo2_pct",
+            "weight": 40,
+            "minimum": 0.0,
+            "maximum": 40.0,
+            "projected_value": null,
+            "value_capped": false,
+            "source_key": null
+          },
+          {
+            "factor": "respiratory_rate_per_min",
+            "weight": 20,
+            "minimum": 0.0,
+            "maximum": 20.0,
+            "projected_value": null,
+            "value_capped": false,
+            "source_key": null
+          },
+          {
+            "factor": "heart_rate_bpm",
+            "weight": 15,
+            "minimum": 0.0,
+            "maximum": 15.0,
+            "projected_value": null,
+            "value_capped": false,
+            "source_key": null
+          },
+          {
+            "factor": "dyspnea_worse_than_usual",
+            "weight": 12,
+            "minimum": 12.0,
+            "maximum": 12.0,
+            "held_constant": true
+          },
+          {
+            "factor": "cough_worse_than_usual",
+            "weight": 6,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "held_constant": true
+          },
+          {
+            "factor": "sputum_change",
+            "weight": 7,
+            "minimum": 0.0,
+            "maximum": 7.0,
+            "held_constant": true
+          }
+        ]
+      },
+      {
+        "day": 5,
+        "date": "2025-01-09",
+        "score_min": null,
+        "score_max": null,
+        "score_band": "unavailable",
+        "projected_values": {
+          "spo2_pct": null,
+          "respiratory_rate_per_min": null,
+          "heart_rate_bpm": null
+        },
+        "components": [
+          {
+            "factor": "spo2_pct",
+            "weight": 40,
+            "minimum": 0.0,
+            "maximum": 40.0,
+            "projected_value": null,
+            "value_capped": false,
+            "source_key": null
+          },
+          {
+            "factor": "respiratory_rate_per_min",
+            "weight": 20,
+            "minimum": 0.0,
+            "maximum": 20.0,
+            "projected_value": null,
+            "value_capped": false,
+            "source_key": null
+          },
+          {
+            "factor": "heart_rate_bpm",
+            "weight": 15,
+            "minimum": 0.0,
+            "maximum": 15.0,
+            "projected_value": null,
+            "value_capped": false,
+            "source_key": null
+          },
+          {
+            "factor": "dyspnea_worse_than_usual",
+            "weight": 12,
+            "minimum": 12.0,
+            "maximum": 12.0,
+            "held_constant": true
+          },
+          {
+            "factor": "cough_worse_than_usual",
+            "weight": 6,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "held_constant": true
+          },
+          {
+            "factor": "sputum_change",
+            "weight": 7,
+            "minimum": 0.0,
+            "maximum": 7.0,
+            "held_constant": true
+          }
+        ]
+      },
+      {
+        "day": 6,
+        "date": "2025-01-10",
+        "score_min": null,
+        "score_max": null,
+        "score_band": "unavailable",
+        "projected_values": {
+          "spo2_pct": null,
+          "respiratory_rate_per_min": null,
+          "heart_rate_bpm": null
+        },
+        "components": [
+          {
+            "factor": "spo2_pct",
+            "weight": 40,
+            "minimum": 0.0,
+            "maximum": 40.0,
+            "projected_value": null,
+            "value_capped": false,
+            "source_key": null
+          },
+          {
+            "factor": "respiratory_rate_per_min",
+            "weight": 20,
+            "minimum": 0.0,
+            "maximum": 20.0,
+            "projected_value": null,
+            "value_capped": false,
+            "source_key": null
+          },
+          {
+            "factor": "heart_rate_bpm",
+            "weight": 15,
+            "minimum": 0.0,
+            "maximum": 15.0,
+            "projected_value": null,
+            "value_capped": false,
+            "source_key": null
+          },
+          {
+            "factor": "dyspnea_worse_than_usual",
+            "weight": 12,
+            "minimum": 12.0,
+            "maximum": 12.0,
+            "held_constant": true
+          },
+          {
+            "factor": "cough_worse_than_usual",
+            "weight": 6,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "held_constant": true
+          },
+          {
+            "factor": "sputum_change",
+            "weight": 7,
+            "minimum": 0.0,
+            "maximum": 7.0,
+            "held_constant": true
+          }
+        ]
+      },
+      {
+        "day": 7,
+        "date": "2025-01-11",
+        "score_min": null,
+        "score_max": null,
+        "score_band": "unavailable",
+        "projected_values": {
+          "spo2_pct": null,
+          "respiratory_rate_per_min": null,
+          "heart_rate_bpm": null
+        },
+        "components": [
+          {
+            "factor": "spo2_pct",
+            "weight": 40,
+            "minimum": 0.0,
+            "maximum": 40.0,
+            "projected_value": null,
+            "value_capped": false,
+            "source_key": null
+          },
+          {
+            "factor": "respiratory_rate_per_min",
+            "weight": 20,
+            "minimum": 0.0,
+            "maximum": 20.0,
+            "projected_value": null,
+            "value_capped": false,
+            "source_key": null
+          },
+          {
+            "factor": "heart_rate_bpm",
+            "weight": 15,
+            "minimum": 0.0,
+            "maximum": 15.0,
+            "projected_value": null,
+            "value_capped": false,
+            "source_key": null
+          },
+          {
+            "factor": "dyspnea_worse_than_usual",
+            "weight": 12,
+            "minimum": 12.0,
+            "maximum": 12.0,
+            "held_constant": true
+          },
+          {
+            "factor": "cough_worse_than_usual",
+            "weight": 6,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "held_constant": true
+          },
+          {
+            "factor": "sputum_change",
+            "weight": 7,
+            "minimum": 0.0,
+            "maximum": 7.0,
+            "held_constant": true
+          }
+        ]
+      }
+    ],
+    "streams": [],
+    "symptoms": [
+      {
+        "field": "dyspnea_worse_than_usual",
+        "weight": 12,
+        "value": true
+      },
+      {
+        "field": "cough_worse_than_usual",
+        "weight": 6,
+        "value": false
+      },
+      {
+        "field": "sputum_change",
+        "weight": 7,
+        "value": null
+      }
+    ],
+    "diary": {
+      "status": "fresh",
+      "diary_id": "D1",
+      "collected_at": "2025-01-04T12:00:00Z",
+      "available_at": "2025-01-04T12:01:00Z"
+    },
+    "policy": {
+      "version": "pulmira-outlook7-rules-1.0.0",
+      "horizon_days": 7,
+      "lookback_days": 14,
+      "minimum_observed_days": 4,
+      "minimum_span_days": 3,
+      "maximum_measurement_age_hours": 48,
+      "maximum_diary_age_hours": 48,
+      "minimum_sensor_channels": 2,
+      "required_channel": "spo2_pct",
+      "score_bands": {
+        "moderate_from": 25,
+        "elevated_from": 50
+      },
+      "channels": {
+        "spo2_pct": {
+          "weight": 40,
+          "change_scale": 4,
+          "direction": -1,
+          "slope_cap": 0.75,
+          "minimum_value": 50,
+          "maximum_value": 100,
+          "units": "percent",
+          "context_priority": [
+            "fictional_wristband",
+            "spirometer_session"
+          ]
+        },
+        "respiratory_rate_per_min": {
+          "weight": 20,
+          "change_scale": 8,
+          "direction": 1,
+          "slope_cap": 1.5,
+          "minimum_value": 5,
+          "maximum_value": 60,
+          "units": "breaths_per_min",
+          "context_priority": [
+            "fictional_wristband",
+            "overnight_mattress"
+          ]
+        },
+        "heart_rate_bpm": {
+          "weight": 15,
+          "change_scale": 30,
+          "direction": 1,
+          "slope_cap": 4,
+          "minimum_value": 30,
+          "maximum_value": 220,
+          "units": "bpm",
+          "context_priority": [
+            "fictional_wristband",
+            "spirometer_session",
+            "overnight_mattress",
+            "daytime_wrist_PPG"
+          ]
+        }
+      },
+      "symptoms": {
+        "dyspnea_worse_than_usual": 12,
+        "cough_worse_than_usual": 6,
+        "sputum_change": 7
+      },
+      "clinical_validation": false,
+      "is_probability": false,
+      "predictive_accuracy_established": false,
+      "assumptions": [
+        "All weights, change scales, bands, gates and extrapolation limits are explicit engineering choices; they were not fitted or clinically validated.",
+        "The median pairwise slope over the last 14 UTC measurement days continues for seven future UTC dates, bounded by the configured slope and value limits.",
+        "The historical reference is the median of observed daily medians before the latest measurement day in that window; it is not a verified stable clinical baseline.",
+        "Symptoms available within 48 hours are held constant for the projection; their future course is not predicted.",
+        "Unknown sensor or symptom contributions span zero to their full weight. This is an input-completeness bound, not a confidence interval.",
+        "The score measures projected change from a personal historical reference, not absolute illness severity. A low score does not establish normal measurements or safety.",
+        "Separate source, device and context streams are never pooled. Stream selection uses fixed context priority, then recency and lexical identity, never the resulting score.",
+        "Historical source clocks can be assumed. Dates are an as-of scenario, not a live patient forecast. No treatment effect or event probability is supplied."
+      ],
+      "background_sources": [
+        {
+          "title": "The Rome Proposal (2021)",
+          "url": "https://academic.oup.com/ajrccm/article/204/11/1251/8492231",
+          "scope": "Background for symptoms and physiological variables only; not a source of this formula, weights or seven-day predictive validity."
+        },
+        {
+          "title": "NICE NG115",
+          "url": "https://www.nice.org.uk/guidance/ng115/chapter/recommendations",
+          "scope": "COPD clinical background only. This prototype is not a recommended clinical scoring tool."
+        }
+      ]
+    },
+    "policy_sha256": "dbd23a5947500a13f494142af42789784ff4efb3009b8e800bf73774c9502535",
+    "implementation_sha256": "e46127a0dcf39252f8576925ab6654f8821b90204bd4cb83630fb67773a946d8"
+  }
+}

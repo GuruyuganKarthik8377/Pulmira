@@ -1,0 +1,159 @@
+{
+  "version": "pulmira-forecast24-experiment-1.0.0",
+  "created": "2026-10-17",
+  "status": "predeclared_before_new_trajectory_generation",
+  "clinical_validation": false,
+  "domain": "synthetic_only_engineering",
+  "target": {
+    "name": "next_day_simulated_recorded_spo2_below_90",
+    "horizon_days": 1,
+    "channel": "spo2_pct",
+    "threshold": 90.0,
+    "rule": "At decision day t, predict the next calendar day released simulated SpO2 measurement <90. A missing future measurement or incomplete future horizon has unknown label. Ongoing low readings are included: this is state forecasting, NOT incident exacerbation prediction.",
+    "threshold_basis": "Explicit illustrative measurement threshold; not a validated COPD event definition or treatment rule.",
+    "real_patient_use": false
+  },
+  "population": {
+    "profiles": 800,
+    "selection": "First 800 by SHA256(20261017|F24-selection|source_patient_id); selection independent of labels/coverage",
+    "train": 480,
+    "validation": 160,
+    "test": 160,
+    "split": "Selected source profiles ordered by SHA256(20261017|F24-split|source_patient_id); disjoint base profile IDs. Existing study split is not reused.",
+    "namespace": "SIM-F24A-KG-",
+    "independence": "New deterministic patient RNG keys, same fictional source profile pool and frozen mechanism; not external or clinical validation."
+  },
+  "simulation": {
+    "primary_scenario": "denser_assumed_monitoring",
+    "primary_reason": "A newly declared hypothetical daily-monitoring workflow for a different measured-value target; 85% simulated daily availability. Not a measured TOLIFE service and not a revised result of the old seven-day experiment.",
+    "stress_scenario": "source_reference",
+    "generation_days": 181,
+    "decision_days": [
+      28,
+      179
+    ],
+    "parameters_unchanged": true,
+    "seed_retries": false,
+    "sources_sha256": {
+      "src/simulate_copd_v2.py": "bba5c33e2882547c0cc470576f3d1ee3cf4597dc6da3e11520aa9909287eb498",
+      "src/verify_simulator_parameters_v2.py": "a2006387f3105140bda641d2fdad4c2cfb04914eeb035d0e793dd830f88bf82a",
+      "src/calibrate_simulator_parameters_v2.py": "f20cc4d59d3d55905d321055046e1b111b6b6a640b4b6a23330e6f97b7e7ddad",
+      "src/verify_simulator_spec_v2.py": "c731a29af77b134d9f8fcd57d275bead4c7914d3f75a1d9ae3e67cdf8afcc7dc",
+      "config/causal_simulator_parameters_v2.json": "0497e27290f3794c211d562c80739ea5f59c28406cc2f02770ede9909b45bf16",
+      "config/causal_simulator_spec_v2.json": "5401e5955d384e6abeba9997066d0876a7c9f16905c91e1c2d84caae5dbdfaa3",
+      "config/causal_simulator_implementation_v2.json": "50af0a8fd5b274d753e73c295196af3f4495e845768c9609509a298dcd3e600e",
+      "data/processed/synthetic_copd_v1/patients.csv": "44090899c2c5d6013f71ee84941382f8d1d6fc0af26adeae3c4ea7af14d71a0c"
+    }
+  },
+  "eligibility": {
+    "warmup_days": 28,
+    "current_spo2_required": true,
+    "minimum_prior_spo2_readings_28d": 7,
+    "missing_input_policy": "Training medians plus explicit missing indicators. No future imputation.",
+    "no_private_eligibility": true
+  },
+  "features": {
+    "static": "17 frozen simulator static features from the same fictional EHR profile",
+    "dynamic": "Six current sensor channels; last available values and ages; past-only rolling 3/7/28-day means, prior28 mean/count, last7 counts/std, delta from last prior observation; released dyspnea/cough scores with release age. Never forward-fill future values.",
+    "excluded": [
+      "patient_id",
+      "split",
+      "event_register",
+      "latent_burden",
+      "future_observations",
+      "future_missingness",
+      "future_episode_labels",
+      "care_category",
+      "generator_infection_schedule",
+      "selection membership",
+      "decision day as predictor"
+    ]
+  },
+  "candidates": [
+    {
+      "name": "logistic_c01",
+      "family": "logistic",
+      "C": 0.1
+    },
+    {
+      "name": "logistic_c1",
+      "family": "logistic",
+      "C": 1.0
+    },
+    {
+      "name": "hist_depth3",
+      "family": "hist_gradient_boosting",
+      "max_iter": 160,
+      "learning_rate": 0.06,
+      "max_leaf_nodes": 15,
+      "max_depth": 3,
+      "min_samples_leaf": 80,
+      "l2_regularization": 10.0
+    }
+  ],
+  "fit": {
+    "seed": 20261017,
+    "threads": 4,
+    "weights": "Equal total training weight per profile with eligible labelled rows; mean row weight one",
+    "preprocessing": "Fit medians, missing indicators and scaling on train only. Stable feature schema includes all 17 static columns.",
+    "selection": "Highest validation average precision; ties lower validation Brier then candidate declaration order.",
+    "calibration": "None post-hoc: report probability reliability and Brier honestly. No calibration fitted on test.",
+    "threshold": "Validation only: maximize F1 among thresholds with recall>=0.60, precision>=0.50 and alert fraction<=0.35. If none, maximize validation F1; still fail demo gates if unsupported.",
+    "lock_before_test_generation": true
+  },
+  "baselines": [
+    "constant training prevalence",
+    "two-state current-low transition probabilities fitted on train",
+    "current-SpO2-only logistic",
+    "static-EHR-only logistic",
+    "past28-SpO2-mean-only logistic"
+  ],
+  "test_gate": {
+    "minimum_ap_above_prevalence": 0.05,
+    "minimum_recall": 0.6,
+    "minimum_precision": 0.5,
+    "minimum_balanced_accuracy": 0.65,
+    "minimum_runtime_coverage": 0.6,
+    "minimum_labelled_fraction_of_runtime": 0.6,
+    "brier_below_constant": true,
+    "ap_not_more_than_001_below_current_only_logistic": true,
+    "full_model_must_beat_static_ap": true,
+    "accuracy_not_acceptance_criterion": true,
+    "failure_policy": "Publish all results; do not change targets, generator, thresholds or seeds after test. No active predictions in app if gates fail."
+  },
+  "evaluation": {
+    "metrics": [
+      "AP",
+      "prevalence",
+      "AUROC",
+      "Brier",
+      "accuracy",
+      "no-warning accuracy",
+      "precision",
+      "recall",
+      "specificity",
+      "balanced accuracy",
+      "confusion matrix",
+      "alert fraction",
+      "future-label ascertainment",
+      "runtime coverage",
+      "abstention",
+      "false-warning days per100 calendar days",
+      "calibration bins",
+      "new-low transition diagnostic and ongoing-low distinction"
+    ],
+    "bootstrap": {
+      "unit": "whole held-out profile trajectories",
+      "draws": 300,
+      "seed": 20261018
+    },
+    "static_ablation": "Report whether actual incremental benefit from EHR is supported; nominal fusion alone is not proof of benefit.",
+    "stress": "Same held-out base profiles and keyed trajectories with original sparse source-reference monitoring; no threshold refit."
+  },
+  "api_policy": {
+    "real_origins_rejected": true,
+    "future_labels_not_served": true,
+    "raw_model_artifact_no_pickle": "Portable numeric JSON; verify identical predictions against fitted sklearn model.",
+    "probability_next_7_days": null
+  }
+}

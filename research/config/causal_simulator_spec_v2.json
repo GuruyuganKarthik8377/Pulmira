@@ -1,0 +1,540 @@
+{
+  "version": "pulmira-causal-simulator-spec-2.0.0",
+  "created": "2026-10-10",
+  "status": "specification_complete_parameterization_pending",
+  "generation_ready": false,
+  "clinical_validation": false,
+  "causal_effects_identified": false,
+  "accuracy_target_used_for_parameter_selection": false,
+  "source_ids": [
+    "TOLIFE",
+    "ROME",
+    "EMEUSE",
+    "HURST",
+    "SEEMUNGAL",
+    "COPE",
+    "AUDIT_V1",
+    "KAGGLE_LOCAL"
+  ],
+  "datasets": {
+    "available": [
+      "TOLIFE",
+      "KAGGLE_LOCAL"
+    ],
+    "restricted_not_obtained": [
+      "EMEUSE",
+      "COPE"
+    ],
+    "calibration_split": "train",
+    "old_test_role": "already_examined_development_reference_never_fresh_external_validation",
+    "rowwise_pooling_permitted": false
+  },
+  "target": {
+    "primary": "symptom_onset_of_episode_later_classified_moderate_or_severe_care_proxy",
+    "horizon_days": 7,
+    "prediction_time": "end_of_day_t_after_only_available_measurements",
+    "interval": "(t,t+7]",
+    "separate_secondary": "moderate_or_severe_care_event_within_7_days",
+    "secondary_can_replace_primary": false,
+    "unknown_followup_label": "unknown",
+    "unknown_severity_label": "unknown",
+    "requires_label_maturation": true,
+    "severity_scheme": "historical_care_proxy_not_Rome",
+    "onset_timestamp_semantics_in_TOLIFE": "not_established"
+  },
+  "protocol": {
+    "warmup_days": 28,
+    "rolling_days": [
+      3,
+      7,
+      14,
+      28
+    ],
+    "minimum_baseline_readings": 7,
+    "minimum_current_core_channels": 2,
+    "split_fractions": [
+      0.7,
+      0.15,
+      0.15
+    ],
+    "seed": 20261010,
+    "alert_budget_fraction": 0.05,
+    "cooldown_days": 7,
+    "numerical_protocol_status": "engineering_choices_not_clinical_thresholds"
+  },
+  "causal_graph": {
+    "nodes": {
+      "profile": 0,
+      "previous_burden": 0,
+      "previous_care": 0,
+      "exposure": 0,
+      "infection": 0,
+      "context": 0,
+      "burden": 1,
+      "physiology": 2,
+      "symptom_state": 3,
+      "symptom_onset": 4,
+      "care_event": 5,
+      "raw_observation": 5,
+      "measurement_mask": 6,
+      "available_observation": 7,
+      "past_features": 8
+    },
+    "edges": [
+      {
+        "parent": "profile",
+        "child": "burden",
+        "lag": 0
+      },
+      {
+        "parent": "previous_burden",
+        "child": "burden",
+        "lag": -1
+      },
+      {
+        "parent": "previous_care",
+        "child": "burden",
+        "lag": -1
+      },
+      {
+        "parent": "exposure",
+        "child": "burden",
+        "lag": 0
+      },
+      {
+        "parent": "infection",
+        "child": "burden",
+        "lag": 0
+      },
+      {
+        "parent": "context",
+        "child": "burden",
+        "lag": 0
+      },
+      {
+        "parent": "profile",
+        "child": "physiology",
+        "lag": 0
+      },
+      {
+        "parent": "burden",
+        "child": "physiology",
+        "lag": 0
+      },
+      {
+        "parent": "context",
+        "child": "physiology",
+        "lag": 0
+      },
+      {
+        "parent": "physiology",
+        "child": "symptom_state",
+        "lag": 0
+      },
+      {
+        "parent": "burden",
+        "child": "symptom_state",
+        "lag": 0
+      },
+      {
+        "parent": "symptom_state",
+        "child": "symptom_onset",
+        "lag": 0
+      },
+      {
+        "parent": "symptom_state",
+        "child": "care_event",
+        "lag": 0
+      },
+      {
+        "parent": "symptom_onset",
+        "child": "care_event",
+        "lag": 0
+      },
+      {
+        "parent": "context",
+        "child": "care_event",
+        "lag": 0
+      },
+      {
+        "parent": "physiology",
+        "child": "raw_observation",
+        "lag": 0
+      },
+      {
+        "parent": "symptom_state",
+        "child": "raw_observation",
+        "lag": 0
+      },
+      {
+        "parent": "context",
+        "child": "raw_observation",
+        "lag": 0
+      },
+      {
+        "parent": "context",
+        "child": "measurement_mask",
+        "lag": 0
+      },
+      {
+        "parent": "symptom_state",
+        "child": "measurement_mask",
+        "lag": 0
+      },
+      {
+        "parent": "raw_observation",
+        "child": "available_observation",
+        "lag": 0
+      },
+      {
+        "parent": "measurement_mask",
+        "child": "available_observation",
+        "lag": 0
+      },
+      {
+        "parent": "available_observation",
+        "child": "past_features",
+        "lag": 0
+      }
+    ],
+    "future_event_backfill_permitted": false,
+    "event_dates_are_scheduled_inputs": false,
+    "rng_streams_independent": true
+  },
+  "candidate_observed_inputs": [
+    "spo2_pct",
+    "heart_rate_bpm",
+    "respiratory_rate_per_min",
+    "pef_l_per_min",
+    "fev1_l",
+    "sleep_hours",
+    "mobility_index",
+    "exposure_named_channel",
+    "reported_symptoms"
+  ],
+  "private_fields": [
+    "burden",
+    "infection_truth",
+    "vulnerability_truth",
+    "physiology_truth",
+    "symptom_onset",
+    "future_care_category",
+    "future_event_date",
+    "episode_truth",
+    "counterfactual_truth",
+    "conditional_risk_truth"
+  ],
+  "sensor_mapping": [
+    {
+      "source": "pei_spo2",
+      "target": "spo2_pct",
+      "source_units": "percent",
+      "multiplier": 1.0,
+      "context": "spirometer_session_not_continuous"
+    },
+    {
+      "source": "pei_hr",
+      "target": "heart_rate_bpm",
+      "source_units": "bpm",
+      "multiplier": 1.0,
+      "context": "spirometer_session_not_nightly_HR"
+    },
+    {
+      "source": "bri_rf_mean",
+      "target": "respiratory_rate_per_min",
+      "source_units": "breaths_per_min",
+      "multiplier": 1.0,
+      "context": "sleep_phase"
+    },
+    {
+      "source": "pei_mean_pef",
+      "target": "pef_l_per_min",
+      "source_units": "cL_per_min_per_README",
+      "multiplier": null,
+      "context": "unit_magnitude_requires_confirmation_before_transfer",
+      "documented_multiplier": 0.01,
+      "conversion_status": "metadata_and_magnitude_confirmation_required"
+    },
+    {
+      "source": "pei_mean_fev1",
+      "target": "fev1_l",
+      "source_units": "cL_per_README",
+      "multiplier": null,
+      "context": "unit_magnitude_requires_confirmation_before_transfer",
+      "documented_multiplier": 0.01,
+      "conversion_status": "metadata_and_magnitude_confirmation_required"
+    },
+    {
+      "source": "sqi_sleep_duration",
+      "target": "sleep_hours",
+      "source_units": "hours",
+      "multiplier": 1.0,
+      "context": "nightly"
+    },
+    {
+      "source": "ei_mean_aqi",
+      "target": "exposure_named_channel",
+      "source_units": "AQI_scale_0_500",
+      "multiplier": null,
+      "context": "AQI_not_PM25_no_conversion_without_algorithm_and_pollutant"
+    }
+  ],
+  "parameter_registry": [
+    {
+      "id": "burden_persistence",
+      "units": "dimensionless",
+      "evidence_ids": [
+        "ROME"
+      ],
+      "status": "unresolved",
+      "value": null,
+      "decision": "Latent first-order persistence; require sensitivity including short-lived and persistent episodes.",
+      "release_required": true
+    },
+    {
+      "id": "infection_arrival_and_duration",
+      "units": "per_day_and_days",
+      "evidence_ids": [
+        "ROME"
+      ],
+      "status": "unresolved",
+      "value": null,
+      "decision": "Specify independent infection process; not fitted to future event windows.",
+      "release_required": true
+    },
+    {
+      "id": "exposure_process",
+      "units": "channel_specific_units",
+      "evidence_ids": [
+        "COPE"
+      ],
+      "status": "unresolved",
+      "value": null,
+      "decision": "Specify pollutant or AQI explicitly; include a null-effect branch.",
+      "release_required": true
+    },
+    {
+      "id": "exposure_burden_effect",
+      "units": "per_exposure_unit",
+      "evidence_ids": [
+        "COPE"
+      ],
+      "status": "unresolved",
+      "value": null,
+      "decision": "Unidentified causal effect; zero and hypothetical nonzero scenarios must remain separate.",
+      "release_required": true
+    },
+    {
+      "id": "baseline_vulnerability",
+      "units": "dimensionless",
+      "evidence_ids": [
+        "KAGGLE_LOCAL"
+      ],
+      "status": "unresolved",
+      "value": null,
+      "decision": "Profile associations are assumptions; do not manufacture GOLD grades.",
+      "release_required": true
+    },
+    {
+      "id": "abrupt_deterioration_process",
+      "units": "per_day_and_amplitude",
+      "evidence_ids": [
+        "SEEMUNGAL"
+      ],
+      "status": "unresolved",
+      "value": null,
+      "decision": "Allow sudden events and weak or absent observable warning; proportion is not estimated here.",
+      "release_required": true
+    },
+    {
+      "id": "symptom_onset_rule",
+      "units": "symptom_scale_and_days",
+      "evidence_ids": [
+        "ROME"
+      ],
+      "status": "unresolved",
+      "value": null,
+      "decision": "Prospective threshold/persistence rule on latent symptoms; first crossing, never a scheduled date.",
+      "release_required": true
+    },
+    {
+      "id": "episode_resolution_and_recurrence",
+      "units": "days_and_thresholds",
+      "evidence_ids": [
+        "SEEMUNGAL"
+      ],
+      "status": "unresolved",
+      "value": null,
+      "decision": "State-based resolution and recurrence; no universal fixed recovery exclusion.",
+      "release_required": true
+    },
+    {
+      "id": "sensor_response_and_lags",
+      "units": "channel_units_and_days",
+      "evidence_ids": [
+        "HURST"
+      ],
+      "status": "unresolved",
+      "value": null,
+      "decision": "Heterogeneous responses; no mandatory seven-day ramp or equal lag for all sensors.",
+      "release_required": true
+    },
+    {
+      "id": "observation_dispersion",
+      "units": "channel_units",
+      "evidence_ids": [
+        "HURST"
+      ],
+      "status": "unresolved",
+      "value": null,
+      "decision": "Estimate total day-to-day dispersion separately from unknown device error.",
+      "release_required": true
+    },
+    {
+      "id": "device_error_and_bias",
+      "units": "channel_units",
+      "evidence_ids": [
+        "HURST"
+      ],
+      "status": "unresolved",
+      "value": null,
+      "decision": "Cannot recover separately from daily aggregates; use explicitly hypothetical device scenarios.",
+      "release_required": true
+    },
+    {
+      "id": "benign_and_mimic_process",
+      "units": "per_day_and_amplitude",
+      "evidence_ids": [
+        "HURST"
+      ],
+      "status": "unresolved",
+      "value": null,
+      "decision": "Include physiological changes without target events and overlapping event-like readings.",
+      "release_required": true
+    },
+    {
+      "id": "missingness_and_dropout",
+      "units": "probability_and_days",
+      "evidence_ids": [
+        "TOLIFE"
+      ],
+      "status": "unresolved",
+      "value": null,
+      "decision": "Train-only gap patterns are descriptive; include illness-related missingness sensitivity.",
+      "release_required": true
+    },
+    {
+      "id": "care_access_delay",
+      "units": "days",
+      "evidence_ids": [
+        "EMEUSE"
+      ],
+      "status": "unresolved",
+      "value": null,
+      "decision": "Separate symptoms from care; delay is uncertain and does not extend the onset endpoint.",
+      "release_required": true
+    },
+    {
+      "id": "care_category_assignment",
+      "units": "categorical",
+      "evidence_ids": [
+        "ROME"
+      ],
+      "status": "unresolved",
+      "value": null,
+      "decision": "Explicit historical care-proxy rule; no claim of Rome physiological severity.",
+      "release_required": true
+    },
+    {
+      "id": "label_maturation_cap",
+      "units": "days_after_onset",
+      "evidence_ids": [
+        "EMEUSE"
+      ],
+      "status": "unresolved",
+      "value": null,
+      "decision": "Predeclare maximum ascertainment window; unresolved categories remain unknown.",
+      "release_required": true
+    },
+    {
+      "id": "intervention_response",
+      "units": "latent_units",
+      "evidence_ids": [
+        "COPE"
+      ],
+      "status": "unresolved",
+      "value": null,
+      "decision": "No validated treatment/exposure effect; default output must flag simulation-only effects.",
+      "release_required": true
+    },
+    {
+      "id": "population_and_sensor_transfer",
+      "units": "mapping",
+      "evidence_ids": [
+        "TOLIFE"
+      ],
+      "status": "unresolved",
+      "value": null,
+      "decision": "Nightly, spot and continuous measurements require distinct mapping; no unsupported cross-patient linkage.",
+      "release_required": true
+    },
+    {
+      "id": "spirometry_unit_confirmation",
+      "units": "mapping",
+      "evidence_ids": [
+        "TOLIFE"
+      ],
+      "status": "unresolved",
+      "value": null,
+      "decision": "README PEF cL/min needs confirmation against observed magnitudes. Do not convert automatically or silently assume L/min. Omit unconfirmed channels from generation.",
+      "release_required": true
+    }
+  ],
+  "evaluation": {
+    "test_seeds_new": true,
+    "mechanism_shift_required": true,
+    "test_used_for_selection": false,
+    "patient_grouped_training": true,
+    "metrics": [
+      "average_precision",
+      "ROC_AUC",
+      "calibration",
+      "Brier_score",
+      "precision_at_alert_budget",
+      "positive_window_recall",
+      "unique_event_sensitivity_with_opportunity",
+      "false_alerts_per_100_patient_days",
+      "lead_time_before_symptom_onset",
+      "abstention_coverage"
+    ],
+    "baselines": [
+      "always_negative",
+      "history_only",
+      "causal_past_only_trend_score",
+      "full_model"
+    ],
+    "stress_scenarios": [
+      "weak_or_absent_warning",
+      "null_exposure_effect",
+      "stronger_benign_or_mimic_variation",
+      "illness_related_missingness",
+      "sensor_bias_or_different_device",
+      "different_care_access_delay",
+      "different_incidence_and_recurrence"
+    ],
+    "publish_all_predeclared_scenarios": true,
+    "predictability_audit_before_training": true,
+    "simulated_test_is_clinical_validation": false
+  },
+  "release_requirements": [
+    "all_required_parameters_resolved_and_labelled",
+    "immutable_config_source_seed_and_input_hashes",
+    "two_byte_identical_builds",
+    "prefix_and_future_rng_independence_tests",
+    "independent_labels_and_feature_reconstruction",
+    "continuous_days_and_label_maturation_checks",
+    "predictability_audit_before_training",
+    "frozen_search_calibration_threshold_then_test",
+    "simulation_only_claims"
+  ]
+}

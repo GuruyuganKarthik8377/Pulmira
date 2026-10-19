@@ -1,0 +1,34 @@
+# Dependencies/builds are recreated from committed lockfiles.
+**/node_modules
+**/.venv
+**/__pycache__/
+**/*.py[cod]
+**/.pytest_cache/
+frontend/dist/
+*.tsbuildinfo
+.DS_Store
+# Never commit runtime health records, sessions, credentials, recordings or local exports.
+.env
+.env.*
+!.env.example
+**/.secret
+**/*.db
+**/*.db-*
+**/*.sqlite*
+backend/data/
+*.pem
+*.key
+*.p12
+*.pfx
+*.mp4
+*.mov
+*.wav
+*.mp3
+coverage/
+tmp/
+# Real-person data and source archives are intentionally absent from this distribution.
+**/data/raw/
+**/tolife_participants.csv
+**/example_source_*.json
+backend/vendor/public-data/data/processed/public_now_v1/*
+!backend/vendor/public-data/data/processed/public_now_v1/bidmc_records.json

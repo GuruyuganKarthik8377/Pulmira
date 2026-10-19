@@ -1,0 +1,19 @@
+{
+  "version": "pulmira-next-forecast-draft-1.0.0",
+  "created": "2026-10-12",
+  "status": "draft_not_preregistered",
+  "training_authorized": false,
+  "target": "Clinician/custodian-verified first symptom onset of a qualified exacerbation in (decision_time, decision_time + 7 days]",
+  "alternate_recorded_care_endpoint": "Requires an explicit separately predeclared protocol; never rename care dates to symptom onset",
+  "negative_rule": "Full future horizon inside verified complete surveillance, labels mature at dataset cutoff and no qualified episode; otherwise unknown",
+  "data_entry_requirements": ["source provenance and permitted use documented", "physical device/context and measured availability or verified bounds", "verified event-onset and surveillance intervals", "measured monitoring feasibility reviewed", "episode handling, recovery and recurrent events specified", "reserved independent confirmation patients or cohort before any fitting"],
+  "partition": "Patient-disjoint training/validation/confirmation; fit transforms only on training. Longitudinal same-patient evaluation, if additionally done, reported separately",
+  "candidate_feature_views": ["verified static history", "static history plus past-only patient trends", "history plus trends plus direct available symptom diary"],
+  "candidate_families": ["regularized logistic regression", "gradient-boosted trees"],
+  "selection": "Freeze exact grid, patient folds, seeds, missing-data processing and selection metric only after receiving and qualifying data, before model search. No deep-learning search justified by current evidence",
+  "threshold": "Specify acceptable alert workload with clinician/workflow review before fitting; select threshold on validation only. Do not tune on current frozen tests",
+  "evaluation": ["average precision against prevalence and history baselines", "ROC-AUC", "positive-window recall and precision", "balanced accuracy", "calibration/Brier score", "all-calendar prediction coverage and abstention", "all-event sensitivity with no-opportunity events retained", "false alerts per patient-time and repeated-alert cooldown", "patient-cluster uncertainty and independent confirmation"],
+  "success_rule": "Must exceed prespecified baselines with useful recall/precision/coverage and workload; declare exact operating targets with reviewers before fitting. Overall accuracy alone is insufficient",
+  "desired_80_percent": "User aspiration, not achieved performance or an invented guaranteed success criterion",
+  "previous_exposure": "Prior real and synthetic test outcomes and the current TOLIFE release audit have been inspected. Do not re-label their re-evaluation as fresh independent validation"
+}

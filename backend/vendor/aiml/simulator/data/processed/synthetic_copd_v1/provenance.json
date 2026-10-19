@@ -1,0 +1,106 @@
+{
+  "version": "synthetic-copd-1.0.0",
+  "config": {
+    "version": "synthetic-copd-1.0.0",
+    "seed": 20261008,
+    "simulation_start": "2025-02-01",
+    "days": 180,
+    "prediction_horizon_days": 7,
+    "warmup_days": 14,
+    "minimum_observed_channels_today": 2,
+    "split_fractions": [
+      0.7,
+      0.15,
+      0.15
+    ],
+    "acute_days": [
+      3,
+      7
+    ],
+    "recovery_days": [
+      21,
+      35
+    ],
+    "sensor_missing_probability": 0.08,
+    "device_dropout_start_probability": 0.012,
+    "device_dropout_days": [
+      2,
+      5
+    ],
+    "infection_probability": 0.015,
+    "hazard_intercept": -7.0,
+    "burden_persistence": 0.88,
+    "burden_hazard_coefficient": 0.9,
+    "exposure_burden_coefficient": 0.06,
+    "shock_burden_coefficient": 0.65,
+    "adherence_burden_coefficient": 0.025,
+    "historical_lab_max_age_days": 365,
+    "stress_test": {
+      "name": "higher_noise_and_missingness",
+      "noise_multiplier": 1.7,
+      "missing_multiplier": 2.0,
+      "hazard_intercept_offset": 0.5,
+      "respiratory_signal_multiplier": 0.65
+    },
+    "assumptions": "All numerical simulator parameters are engineering assumptions, not fitted clinical estimates. No real patient outcomes were used to tune them. Severity names are simulated categories, not a validated GOLD/Rome severity assessment."
+  },
+  "source_code_sha256": "8a0b92c3226e1711416790453a850e7d3bd8ea379561f1b8dc4202e432b0b215",
+  "config_sha256": "53657f50f6ad8b6d123fd384ffd96bbb0b2997da5b9f61d6850ca2f72c657bd6",
+  "history_policy": {
+    "excluded_deceased_patients": 29,
+    "invalid_historical_admissions_not_used": 15,
+    "baseline_date_policy": "Untimed source snapshot is assumed at simulator initialization; not an observed clinical measurement date.",
+    "medication_policy": "Historical adherence summarizes prior prescriptions, not current active therapy. Simulated adherence is an explicit assumption.",
+    "lab_policy": "Latest date strictly before anchor, within 365 days; same-date duplicates averaged. Older or absent results remain missing."
+  },
+  "source_hashes": {
+    "diagnoses.csv": "b8d7ae5052ec7093f52f2604dd777465673ccfa1982b849fd9523b3b7f5216fa",
+    "lab_results.csv": "b2ea08b949268d9e5dc8e8feea525d294827eb30cecec8dbc33c6b77da285a6c",
+    "medications.csv": "6e3d10ae20589bf95561d482f8c9daf6800aeb89902c378dba9afdf40c35ef68",
+    "outcomes.csv": "57c693bb21a4920c89ca1eb767fb2a45cc58e83129e7f877851685884d09a542",
+    "patients.csv": "619d43616580b8aa6a15f720940408abf78a45eb127450161ef1a1e16aa641d7"
+  },
+  "runtime": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3"
+  },
+  "summary": {
+    "standard": {
+      "patients": 8421,
+      "patient_days": 1515780,
+      "eligible_rows": 1263701,
+      "positive_rows": 16153,
+      "events": 2610,
+      "missing_fraction": 0.10352714444048608
+    },
+    "stress_test": {
+      "patients": 1264,
+      "patient_days": 227520,
+      "eligible_rows": 183472,
+      "positive_rows": 3507,
+      "events": 587,
+      "missing_fraction": 0.18248121044303797
+    }
+  },
+  "profile_count": 8421,
+  "split_counts": {
+    "train": 5894,
+    "test": 1264,
+    "validation": 1263
+  },
+  "output_hashes": {
+    "events.csv": "8745be71d4010e7d1734fd4aece03ac6e5503ac17bd8d1e4b79ac63a012d445b",
+    "excluded_patients.csv": "015124f815873821405fc8455fe8f69e5d3217105f0c800fb20489d3d68b3e1c",
+    "input_schema.json": "979dabbb76bc0d5cc6e458f678406534472c620d98f09823718adc4d86d5937a",
+    "monitoring.csv": "ea9d46ab88eac06d596525d280b327a04c5b204ec809b9c722d916e5db2789cb",
+    "patient_split.csv": "60d30877de6eda09c17eeeb2a543cb629b99ca421ea3924e862a26d0c2ee4fd7",
+    "patients.csv": "44090899c2c5d6013f71ee84941382f8d1d6fc0af26adeae3c4ea7af14d71a0c",
+    "standard_modeling.csv.gz": "f8dd466af07177e298a80c4c540c2dd06c98df6aaf2df53a8dd372efb9aaa844",
+    "standard_observations.csv.gz": "2a1022694bf43dda63df3d960a4ae80245beabe4840ad52add2d633caa5c7d5a",
+    "standard_private_audit.csv.gz": "7ca9346c44c67312f2618004cc2deaf14969f49f0e64e2bf8a79e2f74695af02",
+    "stress_test_modeling.csv.gz": "b67fabaeeed483e60791a6897560dbb9a5e76a03df8b0bd2036d7d7257c4d595",
+    "stress_test_observations.csv.gz": "c3b9cd2548d42d971f6dc514246cd3db1dd413b8e545c6d6f761f30acc723dcb",
+    "stress_test_private_audit.csv.gz": "de25589b260cd3442c793448b70c84085ea4b75e41593c4f830f9d7934f9e63a"
+  }
+}

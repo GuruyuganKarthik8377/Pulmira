@@ -1,0 +1,63 @@
+{
+  "version": "2.0.0",
+  "created": "2026-10-11",
+  "calibration_split": "train",
+  "source_table": "data/processed/tolife_patient_day_full.csv",
+  "membership_table": "data/processed/tolife_patient_split.csv",
+  "channels": {
+    "spo2_pct": {
+      "source": "pei_spo2",
+      "units": "percent",
+      "context": "spirometer_session",
+      "minimum_reference_sd": 0.25
+    },
+    "heart_rate_bpm": {
+      "source": "pei_hr",
+      "units": "bpm",
+      "context": "spirometer_session",
+      "minimum_reference_sd": 1.0
+    },
+    "respiratory_rate_per_min": {
+      "source": "bri_rf_mean",
+      "units": "breaths_per_min",
+      "context": "sleep_phase",
+      "minimum_reference_sd": 0.25
+    },
+    "sleep_hours": {
+      "source": "sqi_sleep_duration",
+      "units": "hours",
+      "context": "nightly",
+      "minimum_reference_sd": 0.25
+    },
+    "aqi_index": {
+      "source": "ei_mean_aqi",
+      "units": "AQI",
+      "context": "sleep_environment",
+      "minimum_reference_sd": 5.0
+    },
+    "gait_speed_m_per_s": {
+      "source": "mi_gs_mean",
+      "units": "m_per_s",
+      "context": "mobility_index",
+      "minimum_reference_sd": 0.03
+    }
+  },
+  "minimum_observations_per_patient": 7,
+  "patient_weighting": "one_patient_one_summary_for_baseline_dispersion_and_bootstrap",
+  "baseline_estimator": "median_of_patient_observed_medians",
+  "dispersion_estimator": "median_of_patient_observed_sample_sd_ddof1",
+  "missingness_estimator": "calendar_adjacent_binary_observation_transition_counts_Beta1_1_smoothing",
+  "bootstrap_draws": 1000,
+  "bootstrap_seed": 20261011,
+  "bootstrap_unit": "patient",
+  "percentile_interval": [
+    2.5,
+    97.5
+  ],
+  "event_dates_or_labels_used": false,
+  "stable_days_identified": false,
+  "device_error_identified": false,
+  "future_covariates_used": false,
+  "interpretation": "Descriptive all-training-calendar reference. Physiology, serial dynamics, events, care, device-noise decomposition and population transfer remain engineering assumptions. Calendar gaps do not establish device failure.",
+  "transition_weighting": "pooled_calendar_adjacent_pairs_not_equal_patient_weights"
+}

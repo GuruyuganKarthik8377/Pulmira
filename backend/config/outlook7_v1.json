@@ -1,0 +1,35 @@
+{
+  "version": "pulmira-outlook7-rules-1.0.0",
+  "horizon_days": 7,
+  "lookback_days": 14,
+  "minimum_observed_days": 4,
+  "minimum_span_days": 3,
+  "maximum_measurement_age_hours": 48,
+  "maximum_diary_age_hours": 48,
+  "minimum_sensor_channels": 2,
+  "required_channel": "spo2_pct",
+  "score_bands": {"moderate_from": 25, "elevated_from": 50},
+  "channels": {
+    "spo2_pct": {"weight": 40, "change_scale": 4, "direction": -1, "slope_cap": 0.75, "minimum_value": 50, "maximum_value": 100, "units": "percent", "context_priority": ["fictional_wristband", "spirometer_session"]},
+    "respiratory_rate_per_min": {"weight": 20, "change_scale": 8, "direction": 1, "slope_cap": 1.5, "minimum_value": 5, "maximum_value": 60, "units": "breaths_per_min", "context_priority": ["fictional_wristband", "overnight_mattress"]},
+    "heart_rate_bpm": {"weight": 15, "change_scale": 30, "direction": 1, "slope_cap": 4, "minimum_value": 30, "maximum_value": 220, "units": "bpm", "context_priority": ["fictional_wristband", "spirometer_session", "overnight_mattress", "daytime_wrist_PPG"]}
+  },
+  "symptoms": {"dyspnea_worse_than_usual": 12, "cough_worse_than_usual": 6, "sputum_change": 7},
+  "clinical_validation": false,
+  "is_probability": false,
+  "predictive_accuracy_established": false,
+  "assumptions": [
+    "All weights, change scales, bands, gates and extrapolation limits are explicit engineering choices; they were not fitted or clinically validated.",
+    "The median pairwise slope over the last 14 UTC measurement days continues for seven future UTC dates, bounded by the configured slope and value limits.",
+    "The historical reference is the median of observed daily medians before the latest measurement day in that window; it is not a verified stable clinical baseline.",
+    "Symptoms available within 48 hours are held constant for the projection; their future course is not predicted.",
+    "Unknown sensor or symptom contributions span zero to their full weight. This is an input-completeness bound, not a confidence interval.",
+    "The score measures projected change from a personal historical reference, not absolute illness severity. A low score does not establish normal measurements or safety.",
+    "Separate source, device and context streams are never pooled. Stream selection uses fixed context priority, then recency and lexical identity, never the resulting score.",
+    "Historical source clocks can be assumed. Dates are an as-of scenario, not a live patient forecast. No treatment effect or event probability is supplied."
+  ],
+  "background_sources": [
+    {"title": "The Rome Proposal (2021)", "url": "https://academic.oup.com/ajrccm/article/204/11/1251/8492231", "scope": "Background for symptoms and physiological variables only; not a source of this formula, weights or seven-day predictive validity."},
+    {"title": "NICE NG115", "url": "https://www.nice.org.uk/guidance/ng115/chapter/recommendations", "scope": "COPD clinical background only. This prototype is not a recommended clinical scoring tool."}
+  ]
+}

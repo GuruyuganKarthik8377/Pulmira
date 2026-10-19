@@ -1,0 +1,26 @@
+{
+  "version": "pulmira-observed-twin-1.0.0",
+  "purpose": "Observed-state engineering and retrospective source replay; no model fitting or clinical forecasting",
+  "max_measurement_age_hours": 24,
+  "baseline_window_days": 28,
+  "minimum_prior_observed_days": 7,
+  "warmup_days": 28,
+  "baseline_clock": "Prior 28 UTC decision-calendar days; current decision day and latest measurement-end day excluded; only readings available by the decision",
+  "exclude_latest_measurement_day": true,
+  "baseline_summary": "Equal-weight mean of daily means, separately by patient, origin, channel, context and device/source series",
+  "source_replay_lag_hours_assumed": 24,
+  "source_clock_evidence": "assumed_source_clock",
+  "source_device_identity": "unknown; kit/stream is a source-series identifier, not a physical device identifier",
+  "forecast_model_validated": false,
+  "clinical_validation": false,
+  "risk_probability": null,
+  "channels": {
+    "spo2_pct": {"units": "percent", "sanity_bounds": [1, 100]},
+    "heart_rate_bpm": {"units": "bpm", "sanity_bounds": [1, 300]},
+    "respiratory_rate_per_min": {"units": "breaths_per_min", "sanity_bounds": [1, 100]},
+    "sleep_hours": {"units": "hours", "sanity_bounds": [0, 24]},
+    "gait_speed_m_per_s": {"units": "m_per_s", "sanity_bounds": [0, 5]},
+    "aqi_index": {"units": "AQI_index", "sanity_bounds": [0, 500]}
+  },
+  "scope": "No imputations, risk scores, treatment recommendations, counterfactual effects or outcome annotations in prediction state"
+}

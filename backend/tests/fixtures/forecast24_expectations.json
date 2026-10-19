@@ -1,0 +1,293 @@
+{
+  "source": "Locked held-out audit probabilities from original research runner; no target labels",
+  "predictions": [
+    {
+      "profile_id": "SIM-F24A-KG-P0009404",
+      "day": 28,
+      "status": "unavailable",
+      "probability": null
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0009404",
+      "day": 60,
+      "status": "available",
+      "probability": 0.9658244841745257
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0009404",
+      "day": 90,
+      "status": "available",
+      "probability": 0.9817847582041819
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0009404",
+      "day": 179,
+      "status": "available",
+      "probability": 0.9888220354888428
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0005054",
+      "day": 28,
+      "status": "available",
+      "probability": 0.004908784912913753
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0005054",
+      "day": 60,
+      "status": "unavailable",
+      "probability": null
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0005054",
+      "day": 90,
+      "status": "unavailable",
+      "probability": null
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0005054",
+      "day": 179,
+      "status": "available",
+      "probability": 0.0006107854392563498
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0011447",
+      "day": 28,
+      "status": "available",
+      "probability": 0.4465368442909465
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0011447",
+      "day": 60,
+      "status": "unavailable",
+      "probability": null
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0011447",
+      "day": 90,
+      "status": "available",
+      "probability": 0.10092921779751228
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0011447",
+      "day": 179,
+      "status": "available",
+      "probability": 0.10437691773359097
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0006481",
+      "day": 28,
+      "status": "available",
+      "probability": 0.0013594844778765135
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0006481",
+      "day": 60,
+      "status": "available",
+      "probability": 0.0013545685101584125
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0006481",
+      "day": 90,
+      "status": "available",
+      "probability": 0.000748146805104615
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0006481",
+      "day": 179,
+      "status": "available",
+      "probability": 0.0008327448712996589
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0006981",
+      "day": 28,
+      "status": "available",
+      "probability": 0.04208550107297621
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0006981",
+      "day": 60,
+      "status": "available",
+      "probability": 0.022902325785284935
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0006981",
+      "day": 90,
+      "status": "unavailable",
+      "probability": null
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0006981",
+      "day": 179,
+      "status": "available",
+      "probability": 0.02012545729628526
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0002176",
+      "day": 28,
+      "status": "available",
+      "probability": 0.007413532640788067
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0002176",
+      "day": 60,
+      "status": "available",
+      "probability": 0.00395545958130131
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0002176",
+      "day": 90,
+      "status": "unavailable",
+      "probability": null
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0002176",
+      "day": 179,
+      "status": "available",
+      "probability": 0.0009364633387400222
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0007857",
+      "day": 28,
+      "status": "available",
+      "probability": 0.09620009675639474
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0007857",
+      "day": 60,
+      "status": "available",
+      "probability": 0.015346884374920967
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0007857",
+      "day": 90,
+      "status": "unavailable",
+      "probability": null
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0007857",
+      "day": 179,
+      "status": "available",
+      "probability": 0.0574117362121897
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0004371",
+      "day": 28,
+      "status": "unavailable",
+      "probability": null
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0004371",
+      "day": 60,
+      "status": "available",
+      "probability": 0.007524103431140984
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0004371",
+      "day": 90,
+      "status": "unavailable",
+      "probability": null
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0004371",
+      "day": 179,
+      "status": "unavailable",
+      "probability": null
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0004680",
+      "day": 28,
+      "status": "unavailable",
+      "probability": null
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0004680",
+      "day": 60,
+      "status": "available",
+      "probability": 0.06118844021397456
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0004680",
+      "day": 90,
+      "status": "available",
+      "probability": 0.0062501564851805275
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0004680",
+      "day": 179,
+      "status": "available",
+      "probability": 0.02721084649137021
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0007823",
+      "day": 28,
+      "status": "available",
+      "probability": 0.06655165547699676
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0007823",
+      "day": 60,
+      "status": "available",
+      "probability": 0.2685928989895534
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0007823",
+      "day": 90,
+      "status": "available",
+      "probability": 0.33253330524460706
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0007823",
+      "day": 179,
+      "status": "unavailable",
+      "probability": null
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0003718",
+      "day": 28,
+      "status": "unavailable",
+      "probability": null
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0003718",
+      "day": 60,
+      "status": "available",
+      "probability": 0.0008426000002219571
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0003718",
+      "day": 90,
+      "status": "available",
+      "probability": 0.0005659653404552872
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0003718",
+      "day": 179,
+      "status": "available",
+      "probability": 0.000557356491527833
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0009846",
+      "day": 28,
+      "status": "available",
+      "probability": 0.0008581331538646227
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0009846",
+      "day": 60,
+      "status": "available",
+      "probability": 0.0012185213872211622
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0009846",
+      "day": 90,
+      "status": "available",
+      "probability": 0.00126509121070811
+    },
+    {
+      "profile_id": "SIM-F24A-KG-P0009846",
+      "day": 179,
+      "status": "available",
+      "probability": 0.0013826132037051324
+    }
+  ]
+}

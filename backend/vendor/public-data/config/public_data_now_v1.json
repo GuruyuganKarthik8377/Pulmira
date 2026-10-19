@@ -1,0 +1,49 @@
+{
+  "created": "2026-10-14",
+  "constraint": "Use public downloads or already acquired project data; no approval-dependent acquisition",
+  "model_trained": false,
+  "new_forecast_training_source_qualified": false,
+  "sources": [
+    {
+      "id": "tolife_csa_v2",
+      "url": "https://zenodo.org/records/23263785",
+      "status": "previously_acquired_public",
+      "use": "Existing COPD-specific observed monitoring and descriptive trends",
+      "forecast_metadata_ready": false
+    },
+    {
+      "id": "bidmc_1.0.0",
+      "url": "https://physionet.org/content/bidmc/1.0.0/",
+      "status": "acquired_selected_subset_published_sha256_verified",
+      "raw_path": "data/raw/public_now_v1/bidmc_1.0.0",
+      "recordings": 53,
+      "unique_source_subject_tokens": 46,
+      "use": "Historical relative-clock numeric monitoring demonstration and integration fixture",
+      "copd_population_verified": false,
+      "forecast_metadata_ready": false
+    },
+    {
+      "id": "copd_ppg_18109876",
+      "url": "https://zenodo.org/records/18109876",
+      "status": "128_second_archive_acquired_published_md5_verified",
+      "raw_path": "data/raw/public_now_v1/copd_ppg_18109876",
+      "source_files": 6,
+      "segments": 3836,
+      "use": "Audit only; optional separate screening study needs further qualification",
+      "clinical_label_definition_verified": false,
+      "forecast_metadata_ready": false
+    }
+  ],
+  "active_delivery": [
+    "TOLIFE source-backed monitoring via the existing monitoring-support engine",
+    "Separate BIDMC relative-clock real-recording demonstration",
+    "Existing explicitly fictional COPD simulation"
+  ],
+  "prohibited_transfers": [
+    "Do not merge unrelated source subjects or relabel ICU recordings as confirmed COPD patients",
+    "Do not turn screening labels into future-exacerbation labels",
+    "Do not invent calendar or receipt timestamps for relative recordings",
+    "Do not random-split segments from the same source recording for patient-level validation",
+    "Do not report software checks as predictive accuracy"
+  ]
+}

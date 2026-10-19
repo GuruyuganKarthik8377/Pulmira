@@ -1,0 +1,249 @@
+{
+  "schema_version": "pulmira-monitoring-support-2.0.0",
+  "patient_id": "DEMO-SYNTHETIC-002",
+  "data_origin": "synthetic",
+  "as_of": "2025-03-01T13:00:00Z",
+  "state_kind": "observed_measurements",
+  "state_status": "observations_available",
+  "channels": [
+    {
+      "channel": "heart_rate_bpm",
+      "units": "bpm",
+      "context": "fictional_wristband",
+      "device_id": "DEMO-WRIST-002",
+      "source_series_id": "DEMO-WRIST-002",
+      "observation_id": "ILLUSTRATION-heart_rate_bpm-28",
+      "value": 73.4,
+      "measurement_start": "2025-03-01T11:50:00Z",
+      "measurement_end": "2025-03-01T12:00:00Z",
+      "available_at": "2025-03-01T12:05:00Z",
+      "time_evidence": "synthetic_generated",
+      "window_evidence": "synthetic_generated",
+      "freshness": "fresh",
+      "measurement_age_hours": 1.0,
+      "availability_age_hours": 0.9166666666666666,
+      "last_valid": {
+        "observation_id": "ILLUSTRATION-heart_rate_bpm-28",
+        "value": 73.4,
+        "measurement_end": "2025-03-01T12:00:00Z"
+      },
+      "baseline": {
+        "window_days": 28,
+        "prior_observed_days": 28,
+        "mean": 69.05,
+        "current_day_excluded": true,
+        "latest_measurement_day_excluded": true,
+        "warmup_complete": true,
+        "timestamp_metadata_verified": false
+      },
+      "deviation_from_baseline": 4.3500000000000085,
+      "observation_geometry_ready": true,
+      "verified_observation_ready": false,
+      "reasons": [
+        "timestamp_or_device_metadata_unverified"
+      ]
+    },
+    {
+      "channel": "respiratory_rate_per_min",
+      "units": "breaths_per_min",
+      "context": "fictional_wristband",
+      "device_id": "DEMO-WRIST-002",
+      "source_series_id": "DEMO-WRIST-002",
+      "observation_id": "ILLUSTRATION-respiratory_rate_per_min-28",
+      "value": 16.8,
+      "measurement_start": "2025-03-01T11:50:00Z",
+      "measurement_end": "2025-03-01T12:00:00Z",
+      "available_at": "2025-03-01T12:05:00Z",
+      "time_evidence": "synthetic_generated",
+      "window_evidence": "synthetic_generated",
+      "freshness": "fresh",
+      "measurement_age_hours": 1.0,
+      "availability_age_hours": 0.9166666666666666,
+      "last_valid": {
+        "observation_id": "ILLUSTRATION-respiratory_rate_per_min-28",
+        "value": 16.8,
+        "measurement_end": "2025-03-01T12:00:00Z"
+      },
+      "baseline": {
+        "window_days": 28,
+        "prior_observed_days": 28,
+        "mean": 15.35,
+        "current_day_excluded": true,
+        "latest_measurement_day_excluded": true,
+        "warmup_complete": true,
+        "timestamp_metadata_verified": false
+      },
+      "deviation_from_baseline": 1.450000000000001,
+      "observation_geometry_ready": true,
+      "verified_observation_ready": false,
+      "reasons": [
+        "timestamp_or_device_metadata_unverified"
+      ]
+    },
+    {
+      "channel": "spo2_pct",
+      "units": "percent",
+      "context": "fictional_wristband",
+      "device_id": "DEMO-WRIST-002",
+      "source_series_id": "DEMO-WRIST-002",
+      "observation_id": "ILLUSTRATION-spo2_pct-28",
+      "value": 96.16,
+      "measurement_start": "2025-03-01T11:50:00Z",
+      "measurement_end": "2025-03-01T12:00:00Z",
+      "available_at": "2025-03-01T12:05:00Z",
+      "time_evidence": "synthetic_generated",
+      "window_evidence": "synthetic_generated",
+      "freshness": "fresh",
+      "measurement_age_hours": 1.0,
+      "availability_age_hours": 0.9166666666666666,
+      "last_valid": {
+        "observation_id": "ILLUSTRATION-spo2_pct-28",
+        "value": 96.16,
+        "measurement_end": "2025-03-01T12:00:00Z"
+      },
+      "baseline": {
+        "window_days": 28,
+        "prior_observed_days": 28,
+        "mean": 96.595,
+        "current_day_excluded": true,
+        "latest_measurement_day_excluded": true,
+        "warmup_complete": true,
+        "timestamp_metadata_verified": false
+      },
+      "deviation_from_baseline": -0.4350000000000023,
+      "observation_geometry_ready": true,
+      "verified_observation_ready": false,
+      "reasons": [
+        "timestamp_or_device_metadata_unverified"
+      ]
+    }
+  ],
+  "missing_channels": [
+    "aqi_index",
+    "gait_speed_m_per_s",
+    "sleep_hours"
+  ],
+  "coherent_verified_vital_triad_ready": false,
+  "risk": {
+    "probability_next_7_days": null,
+    "status": "unavailable",
+    "reasons": [
+      "no_validated_forecast_model",
+      "onset_and_surveillance_evidence_not_integrated",
+      "coherent_verified_fresh_vital_triad_unavailable",
+      "synthetic_demonstration_only"
+    ],
+    "clinical_validation": false
+  },
+  "counterfactual": {
+    "status": "unavailable",
+    "reason": "no_validated_real_patient_causal_model"
+  },
+  "interpretation": "Descriptive deviations are observations, not causal triggers or clinical alerts.",
+  "base_schema_version": "pulmira-observed-twin-1.0.0",
+  "patient_trends": [
+    {
+      "channel": "heart_rate_bpm",
+      "units": "bpm",
+      "context": "fictional_wristband",
+      "device_id": "DEMO-WRIST-002",
+      "source_series_id": "DEMO-WRIST-002",
+      "current_observation_id": "ILLUSTRATION-heart_rate_bpm-28",
+      "prior28_observed_days": 28,
+      "prior28_median": 69.05000000000001,
+      "prior28_mad": 2.1000000000000014,
+      "change_from_prior28_median": 4.349999999999994,
+      "robust_standardized_change": 1.3971573396918808,
+      "recent7_observed_days": 7,
+      "recent7_observed_day_fraction": 1.0,
+      "recent7_span_days": 6,
+      "recent7_daily_mean": 72.5,
+      "recent7_slope_units_per_day": 0.3000000000000002,
+      "candidate_feature_geometry_ready": false,
+      "clinical_prediction_validated": false,
+      "reasons": [
+        "verified_observation_geometry_unavailable"
+      ]
+    },
+    {
+      "channel": "respiratory_rate_per_min",
+      "units": "breaths_per_min",
+      "context": "fictional_wristband",
+      "device_id": "DEMO-WRIST-002",
+      "source_series_id": "DEMO-WRIST-002",
+      "current_observation_id": "ILLUSTRATION-respiratory_rate_per_min-28",
+      "prior28_observed_days": 28,
+      "prior28_median": 15.350000000000001,
+      "prior28_mad": 0.7000000000000011,
+      "change_from_prior28_median": 1.4499999999999993,
+      "robust_standardized_change": 1.3971573396918808,
+      "recent7_observed_days": 7,
+      "recent7_observed_day_fraction": 1.0,
+      "recent7_span_days": 6,
+      "recent7_daily_mean": 16.5,
+      "recent7_slope_units_per_day": 0.10000000000000016,
+      "candidate_feature_geometry_ready": false,
+      "clinical_prediction_validated": false,
+      "reasons": [
+        "verified_observation_geometry_unavailable"
+      ]
+    },
+    {
+      "channel": "spo2_pct",
+      "units": "percent",
+      "context": "fictional_wristband",
+      "device_id": "DEMO-WRIST-002",
+      "source_series_id": "DEMO-WRIST-002",
+      "current_observation_id": "ILLUSTRATION-spo2_pct-28",
+      "prior28_observed_days": 28,
+      "prior28_median": 96.595,
+      "prior28_mad": 0.21000000000000085,
+      "change_from_prior28_median": -0.4350000000000023,
+      "robust_standardized_change": -1.3971573396918853,
+      "recent7_observed_days": 7,
+      "recent7_observed_day_fraction": 1.0,
+      "recent7_span_days": 6,
+      "recent7_daily_mean": 96.25,
+      "recent7_slope_units_per_day": -0.030000000000001137,
+      "candidate_feature_geometry_ready": false,
+      "clinical_prediction_validated": false,
+      "reasons": [
+        "verified_observation_geometry_unavailable"
+      ]
+    }
+  ],
+  "symptom_diary": {
+    "status": "patient_report_available",
+    "latest": {
+      "diary_id": "ILLUSTRATION-DIARY",
+      "patient_id": "DEMO-SYNTHETIC-002",
+      "collected_at": "2025-03-01T12:00:00Z",
+      "available_at": "2025-03-01T12:10:00Z",
+      "dyspnea_worse_than_usual": true,
+      "cough_worse_than_usual": false,
+      "sputum_change": null,
+      "reported_symptom_start_at": "2025-02-28T12:00:00Z",
+      "data_origin": "synthetic",
+      "reporter": "patient_self_report",
+      "age_hours": 1.0,
+      "freshness": "fresh",
+      "unknown_flags": [
+        "sputum_change"
+      ],
+      "symptom_onset_clinically_verified": false
+    },
+    "interpretation": "Direct self-report; not a clinician-verified exacerbation or a validated symptom instrument."
+  },
+  "research_readiness": {
+    "experiment_authorized": false,
+    "model_trained": false,
+    "required_review_checks": [
+      "event_target_and_surveillance_verified",
+      "device_and_availability_verified",
+      "observed_collection_feasibility_reviewed",
+      "patient_partition_and_independent_confirmation_reserved",
+      "protocol_registered_before_training"
+    ],
+    "clinical_validation": false
+  }
+}

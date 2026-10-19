@@ -1,0 +1,26 @@
+{
+  "version": "pulmira-monitoring-support-2.0.0",
+  "created": "2026-10-12",
+  "purpose": "Prepare past-only patient trend candidates and direct symptom intake for a separately reviewed experiment; no model fits",
+  "baseline_days": 28,
+  "minimum_baseline_days": 7,
+  "trend_days": 7,
+  "minimum_slope_days": 3,
+  "minimum_slope_span_days": 2,
+  "diary_max_age_hours": 24,
+  "symptom_flags": ["dyspnea_worse_than_usual", "cough_worse_than_usual", "sputum_change"],
+  "robust_scale": "MAD / NormalDist().inv_cdf(0.75); undefined with zero dispersion",
+  "baseline_exclusion": "Current decision day and latest measurement-end day excluded; all input availability must precede the decision",
+  "gap_handling": "Missing observations remain missing; no future interpolation or forward-filled measurement days",
+  "interpretation": "Changes, slopes and standardized deviations are descriptive features, not clinical severity or seven-day probabilities",
+  "experiment_entry_checks": [
+    "event_target_and_surveillance_verified",
+    "device_and_availability_verified",
+    "observed_collection_feasibility_reviewed",
+    "patient_partition_and_independent_confirmation_reserved",
+    "protocol_registered_before_training"
+  ],
+  "experiment_authorized": false,
+  "model_trained": false,
+  "clinical_validation": false
+}

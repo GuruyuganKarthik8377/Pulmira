@@ -1,0 +1,116 @@
+{
+  "plan_sha256": "a3a431f23fe8390ef0aee3625f1c23d376ad6e987ac07da04e0bbaf491606dbc",
+  "code_sha256": {
+    "src/run_forecast24.py": "24bf73e3d0d0f004b881c19437e325e5bab4a2146930286012a2ddb58cc2c9a0",
+    "src/forecast24_features.py": "16f092c80191edbd192acdbea90ae56a81beb951fc7bf0254fa32a3833bbd385"
+  },
+  "selected": {
+    "name": "hist_depth3",
+    "family": "hist_gradient_boosting",
+    "max_iter": 160,
+    "learning_rate": 0.06,
+    "max_leaf_nodes": 15,
+    "max_depth": 3,
+    "min_samples_leaf": 80,
+    "l2_regularization": 10.0
+  },
+  "candidates": [
+    {
+      "candidate": {
+        "name": "logistic_c01",
+        "family": "logistic",
+        "C": 0.1
+      },
+      "validation": {
+        "rows": 17611,
+        "positive_days": 2011,
+        "prevalence": 0.11418999488955767,
+        "average_precision": 0.8726965912117775,
+        "roc_auc": 0.9621174565530607,
+        "brier": 0.03264634065667807,
+        "accuracy": 0.9586054170688774,
+        "always_no_warning_accuracy": 0.8858100051104423,
+        "precision": 0.9495091164095372,
+        "recall": 0.6732968672302337,
+        "specificity": 0.9953846153846154,
+        "balanced_accuracy": 0.8343407413074246,
+        "alert_fraction": 0.08097211969791608,
+        "tp": 1354,
+        "fp": 72,
+        "fn": 657,
+        "tn": 15528,
+        "threshold": 0.5
+      }
+    },
+    {
+      "candidate": {
+        "name": "logistic_c1",
+        "family": "logistic",
+        "C": 1.0
+      },
+      "validation": {
+        "rows": 17611,
+        "positive_days": 2011,
+        "prevalence": 0.11418999488955767,
+        "average_precision": 0.8725388541736661,
+        "roc_auc": 0.9620033406010533,
+        "brier": 0.03266099845961193,
+        "accuracy": 0.9588325478394185,
+        "always_no_warning_accuracy": 0.8858100051104423,
+        "precision": 0.9496503496503497,
+        "recall": 0.6752859273993038,
+        "specificity": 0.9953846153846154,
+        "balanced_accuracy": 0.8353352713919596,
+        "alert_fraction": 0.08119925046845722,
+        "tp": 1358,
+        "fp": 72,
+        "fn": 653,
+        "tn": 15528,
+        "threshold": 0.5
+      }
+    },
+    {
+      "candidate": {
+        "name": "hist_depth3",
+        "family": "hist_gradient_boosting",
+        "max_iter": 160,
+        "learning_rate": 0.06,
+        "max_leaf_nodes": 15,
+        "max_depth": 3,
+        "min_samples_leaf": 80,
+        "l2_regularization": 10.0
+      },
+      "validation": {
+        "rows": 17611,
+        "positive_days": 2011,
+        "prevalence": 0.11418999488955767,
+        "average_precision": 0.8729991146622826,
+        "roc_auc": 0.9623367313111221,
+        "brier": 0.03261168698049334,
+        "accuracy": 0.9588325478394185,
+        "always_no_warning_accuracy": 0.8858100051104423,
+        "precision": 0.9679767103347889,
+        "recall": 0.661362506215813,
+        "specificity": 0.9971794871794872,
+        "balanced_accuracy": 0.8292709966976501,
+        "alert_fraction": 0.07801941968088126,
+        "tp": 1330,
+        "fp": 44,
+        "fn": 681,
+        "tn": 15556,
+        "threshold": 0.5
+      }
+    }
+  ],
+  "threshold": 0.34907053131031723,
+  "validation_threshold_meets_constraints": true,
+  "portable_max_absolute_error": 0.0,
+  "model_sha256": "35ff2d82923641eb63e63ee6ad91fb9b6203cf7afa707a7b2a5a17cb9f11a807",
+  "baselines_sha256": "99db4b049d46d02a6c552de06eb0dfaefd91ca243279b3357e0167142c449b76",
+  "test_trajectories_generated": false,
+  "no_test_outcomes_used": true,
+  "train_profiles": 480,
+  "validation_profiles": 160,
+  "train_rows": 52892,
+  "validation_rows": 17611
+}

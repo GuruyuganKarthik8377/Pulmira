@@ -1,0 +1,18 @@
+{
+  "schema_version": "pulmira-monitoring-support-2.0.0",
+  "base_schema_version": "pulmira-observed-twin-1.0.0",
+  "implementation": "src/pulmira_monitoring_support.py::MonitoringSupport",
+  "query_entry_point": "src/query_monitoring_support.py",
+  "extends_contract": "config/observed_twin_api_v1.json",
+  "additional_response_fields": ["base_schema_version", "patient_trends", "symptom_diary", "research_readiness"],
+  "diary_required_fields": ["diary_id", "patient_id", "collected_at", "available_at", "dyspnea_worse_than_usual", "cough_worse_than_usual", "sputum_change", "reported_symptom_start_at", "data_origin", "reporter"],
+  "diary_boolean_or_null_fields": ["dyspnea_worse_than_usual", "cough_worse_than_usual", "sputum_change"],
+  "diary_reporter": "patient_self_report",
+  "diary_interpretation": "Direct report; not a verified clinical onset label or validated symptom instrument",
+  "candidate_numeric_feature_whitelist": ["prior28_observed_days", "prior28_median", "prior28_mad", "change_from_prior28_median", "robust_standardized_change", "recent7_observed_days", "recent7_observed_day_fraction", "recent7_span_days", "recent7_daily_mean", "recent7_slope_units_per_day"],
+  "excluded_predictor_metadata": ["patient_id", "as_of", "split", "data_origin", "current_observation_id", "source_series_id", "device_id", "clinical_prediction_validated", "candidate_feature_geometry_ready", "reasons"],
+  "whitelist_status": "Draft future feature candidates; no old model accepts this new schema and no estimator is trained here",
+  "current_risk_invariants": {"probability_next_7_days": null, "status": "unavailable", "clinical_validation": false},
+  "current_research_invariants": {"experiment_authorized": false, "model_trained": false, "clinical_validation": false},
+  "display": "Show trend units, freshness and source/device context; null remains unknown. Do not turn descriptive deviations or reported symptoms into a probability, diagnosis or treatment suggestion"
+}

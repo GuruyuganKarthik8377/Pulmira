@@ -1,0 +1,33 @@
+{
+  "version": "pulmira-observed-twin-1.0.0",
+  "implementation": "src/observed_twin.py::ObservedTwin",
+  "integration_status": "Local Python and CLI entry points implemented; HTTP deployment belongs to backend integration",
+  "methods": {
+    "ingest": {"input": "Exact Observation object or dictionary", "result": "true for inserted; false for identical observation ID replay; exception for conflicting IDs/windows"},
+    "ingest_many": {"input": "Iterable of exact observation objects", "result": "Atomic batch; on error the original ledger remains unchanged"},
+    "state": {"arguments": ["patient_id", "as_of", "data_origin"], "result": "Observed state at explicit timezone-aware as_of; origin required"}
+  },
+  "input_required_fields": ["observation_id", "patient_id", "channel", "value", "units", "device_id", "source_series_id", "context", "measurement_start", "measurement_end", "available_at", "validity", "data_origin", "time_evidence", "window_evidence"],
+  "input_nullable_fields": ["value", "device_id", "measurement_start"],
+  "origins": ["real_open", "real_controlled", "synthetic"],
+  "time_evidence_values": ["measured", "custodian_verified_bound", "assumed_source_clock", "synthetic_generated"],
+  "response_fields": ["schema_version", "patient_id", "data_origin", "as_of", "state_kind", "state_status", "channels", "missing_channels", "coherent_verified_vital_triad_ready", "risk", "counterfactual", "interpretation"],
+  "channel_response_fields": ["channel", "units", "context", "device_id", "source_series_id", "observation_id", "value", "measurement_start", "measurement_end", "available_at", "time_evidence", "window_evidence", "freshness", "measurement_age_hours", "availability_age_hours", "last_valid", "baseline", "deviation_from_baseline", "observation_geometry_ready", "verified_observation_ready", "reasons"],
+  "baseline_response_fields": ["window_days", "prior_observed_days", "mean", "current_day_excluded", "latest_measurement_day_excluded", "warmup_complete", "timestamp_metadata_verified"],
+  "risk_response_fields": ["probability_next_7_days", "status", "reasons", "clinical_validation"],
+  "freshness_values": ["fresh", "stale", "invalid"],
+  "missing_representation": "No visible series for an unseen channel; channel name appears in missing_channels. An unseen device/context does not appear before its first available reading.",
+  "display_rules": [
+    "Use each series context, device/source identity and units; do not merge wrist, session and overnight HR.",
+    "A stale value may be displayed with its measurement age and stale badge; do not forward-fill a new measurement or alert.",
+    "An invalid latest record has value=null; last_valid is separately identified historical data.",
+    "Assumed source clocks must be labeled retrospective timing assumptions; they cannot be described as live measured latency.",
+    "Null risk must display Unavailable, with its reasons; never replace null with 0%, low risk or an invented category.",
+    "Descriptive baseline differences are not causal triggers, clinical abnormalities or treatment recommendations.",
+    "Keep synthetic example data visibly marked as synthetic."
+  ],
+  "risk_invariants": {"probability_next_7_days": null, "status": "unavailable", "clinical_validation": false},
+  "persistence": "Append-only in-memory ledger; source replay reads saved observations. Production authentication, database durability, provenance authentication and reviewed revision handling require backend work.",
+  "metadata_verification_limit": "The engine checks declared evidence tags and structure; custodians/clinical reviewers must authenticate the claims. Observation readiness never authorizes a model.",
+  "excluded_inputs": ["future outcomes", "daily model-estimated symptom scores", "unverified clinical visit availability", "surveillance-derived negatives", "treatment effects"]
+}
