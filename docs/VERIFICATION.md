@@ -19,7 +19,7 @@ Verified locally on 19 October 2026. These are software and integrity checks, no
 | Browser smoke check | Fictional source selected by default, real-source selector disabled, command centre and seven-day outlook load |
 | Publication scan | Custom tracked-file privacy/credential scan and Gitleaks scan found no matching credentials in reviewed export |
 | Image metadata | Frontend JPEG files have no EXIF fields |
-| Submission documents | Architecture PDF and 11-page presentation visually reviewed; editable PowerPoint passed package/layout/font/import validation |
+| Submission documents | Architecture PDF previously visually reviewed. Presentation replaced with the supplied 14-page PDF and 14-slide PowerPoint; PDF readability, PowerPoint package integrity and exact source-file hashes checked. Previous presentation layout checks do not apply to this replacement. |
 
 The Starlette test client emits one dependency deprecation warning. This does not fail the suite. All test credentials are clearly named local fixtures; they do not access a service.
 
