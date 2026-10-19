@@ -30,6 +30,10 @@ The original local project has additional source-data checks. They do not count 
 ## Limits and outstanding items
 
 - The final narrated unlisted YouTube video has not been uploaded, so the mandatory demo link remains pending.
-- The exact original Kaggle synthetic EHR publisher/licence and inherited illustration source rights are not recorded in the supplied project. They need confirmation; no external data/artwork is declared MIT by this repository.
+- The inherited illustration source rights still need confirmation. The original Kaggle version 3 source is now verified by exact file hashes and reconstructed COPD-cohort hashes; the publisher lists Apache-2.0. Attribution and the licence copy are included, without relicensing the upstream data as MIT.
 - Clinical seven-day event prediction, clinical calibration and independent clinical validation remain unavailable. Synthetic accuracy cannot establish those outcomes.
 - Automated scanning cannot guarantee detection of every possible secret or sensitive fact. Runtime databases/secrets and raw health data are excluded from Git entirely.
+
+## Dataset verification follow-up, 19 October 2026
+
+A fresh download from Sergey Nefedov's Kaggle dataset version 3 matched all five original user-downloaded CSVs byte for byte. Re-extracting the 8,450-profile COPD subset reproduced every recorded input-table SHA-256 in the frozen simulator provenance. The apparent full-file hash difference was expected because the frozen inputs were filtered tables. See KAGGLE_SOURCE_VERIFICATION.json. This follow-up changes documentation and licence notices only; it does not retrain or alter the model, simulator assumptions, numerical profiles or scientific hash locks.

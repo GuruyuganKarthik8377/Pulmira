@@ -1,0 +1,72 @@
+{
+  "dataset_url": "https://www.kaggle.com/datasets/sergionefedov/patient-records-100k-patients-15-conditions",
+  "publisher": "Sergey Nefedov",
+  "version": 3,
+  "license_as_listed_by_kaggle": "Apache 2.0",
+  "archive_sha256": "f05a67747fcbf25797f963b039266b0ff6a1831d76c61307b0a678c2f9c9d66c",
+  "files": [
+    {
+      "file": "diagnoses.csv",
+      "bytes": 22383301,
+      "download_sha256": "d8f6db7815ebfaff898a2c4b77f1ee3039c8a550e8a1ea6b5b8b513643564bc9",
+      "local_sha256": "d8f6db7815ebfaff898a2c4b77f1ee3039c8a550e8a1ea6b5b8b513643564bc9",
+      "exact_match": true,
+      "pipeline_recorded_sha256": "b8d7ae5052ec7093f52f2604dd777465673ccfa1982b849fd9523b3b7f5216fa",
+      "reconstructed_copd_subset_sha256": "b8d7ae5052ec7093f52f2604dd777465673ccfa1982b849fd9523b3b7f5216fa",
+      "reconstructed_subset_matches_frozen_provenance": true
+    },
+    {
+      "file": "lab_results.csv",
+      "bytes": 188578014,
+      "download_sha256": "7ac29c5681760f15ccc3752e104a49ef104a081509f79fe580121b9f6bd71aba",
+      "local_sha256": "7ac29c5681760f15ccc3752e104a49ef104a081509f79fe580121b9f6bd71aba",
+      "exact_match": true,
+      "pipeline_recorded_sha256": "b2ea08b949268d9e5dc8e8feea525d294827eb30cecec8dbc33c6b77da285a6c",
+      "reconstructed_copd_subset_sha256": "b2ea08b949268d9e5dc8e8feea525d294827eb30cecec8dbc33c6b77da285a6c",
+      "reconstructed_subset_matches_frozen_provenance": true
+    },
+    {
+      "file": "medications.csv",
+      "bytes": 26601379,
+      "download_sha256": "01d2927acb846c2f7231b4d6bd6de25fa9504ac52816de9f00b45a65fc5a57e2",
+      "local_sha256": "01d2927acb846c2f7231b4d6bd6de25fa9504ac52816de9f00b45a65fc5a57e2",
+      "exact_match": true,
+      "pipeline_recorded_sha256": "6e3d10ae20589bf95561d482f8c9daf6800aeb89902c378dba9afdf40c35ef68",
+      "reconstructed_copd_subset_sha256": "6e3d10ae20589bf95561d482f8c9daf6800aeb89902c378dba9afdf40c35ef68",
+      "reconstructed_subset_matches_frozen_provenance": true
+    },
+    {
+      "file": "outcomes.csv",
+      "bytes": 706026,
+      "download_sha256": "2ada1529af7c2b066b0cd149ac25f657e596f2ebdf931a5754d8397bcc8df6c4",
+      "local_sha256": "2ada1529af7c2b066b0cd149ac25f657e596f2ebdf931a5754d8397bcc8df6c4",
+      "exact_match": true,
+      "pipeline_recorded_sha256": "57c693bb21a4920c89ca1eb767fb2a45cc58e83129e7f877851685884d09a542",
+      "reconstructed_copd_subset_sha256": "57c693bb21a4920c89ca1eb767fb2a45cc58e83129e7f877851685884d09a542",
+      "reconstructed_subset_matches_frozen_provenance": true
+    },
+    {
+      "file": "patients.csv",
+      "bytes": 9829548,
+      "download_sha256": "b82e62df442bb322260082dee75f58078e3bc55f4f9eb3d56ff07e906e580c74",
+      "local_sha256": "b82e62df442bb322260082dee75f58078e3bc55f4f9eb3d56ff07e906e580c74",
+      "exact_match": true,
+      "pipeline_recorded_sha256": "619d43616580b8aa6a15f720940408abf78a45eb127450161ef1a1e16aa641d7",
+      "reconstructed_copd_subset_sha256": "619d43616580b8aa6a15f720940408abf78a45eb127450161ef1a1e16aa641d7",
+      "reconstructed_subset_matches_frozen_provenance": true
+    }
+  ],
+  "archive_members": [
+    "diagnoses.csv",
+    "lab_results.csv",
+    "medications.csv",
+    "outcomes.csv",
+    "patients.csv"
+  ],
+  "all_five_local_files_match": true,
+  "copd_selected_profiles": 8450,
+  "pipeline_hash_explanation": "Frozen source_hashes identify the extracted dx_copd==1 cohort CSVs, not the complete raw 100K dataset. Re-extraction from the verified source reproduces all five recorded hashes.",
+  "all_five_reconstructed_subsets_match": true,
+  "verified_on": "2026-10-19",
+  "method": "Fresh Kaggle version 3 download compared by SHA-256 with the user download. The five dx_copd==1 input tables were independently reconstructed with pandas 2.2.3 and matched every frozen source_hashes value."
+}

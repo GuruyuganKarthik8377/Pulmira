@@ -38,7 +38,7 @@ A COPD monitoring research workflow: a reviewer examines available oxygen satura
 | 15-20 minute unlisted YouTube demo | **PENDING - final narrated video has not yet been uploaded. Add its unlisted YouTube URL here before submitting.** |
 | Public access | Repository files are public. The YouTube requirement remains incomplete until a viewable link is added. |
 
-**Submission is not yet complete:** upload the final 15-20 minute narrated demo to YouTube as **Unlisted**, replace the pending row with its URL, and verify it plays when signed out. Do not tick the video requirement until then. Also resolve the synthetic EHR dataset attribution/licence described in the data notice before treating the data materials as openly licensed.
+**Submission is not yet complete:** upload the final 15-20 minute narrated demo to YouTube as **Unlisted**, replace the pending row with its URL, and verify it plays when signed out. Do not tick the video requirement until then. The synthetic EHR source is now verified and attributed under Apache-2.0; inherited illustration rights still need confirmation.
 
 ## Implemented components
 
@@ -102,7 +102,7 @@ The actual trained numeric model is included at [`backend/vendor/forecast24/mode
 
 ### Fictional simulator
 
-The frozen v2 generator provides 16 engineering sensitivity scenarios. Effects and thresholds are assumptions, not identified clinical causal effects. Paired streams and file hashes support reproducibility; they do not establish that a scenario improves patient outcomes. Historical Kaggle-derived fictional starting profiles retain a separate provenance/licence caveat in [third-party notices](THIRD_PARTY_NOTICES.md).
+The frozen v2 generator provides 16 engineering sensitivity scenarios. Effects and thresholds are assumptions, not identified clinical causal effects. Paired streams and file hashes support reproducibility; they do not establish that a scenario improves patient outcomes. The starting profiles derive from [Sergey Nefedov's synthetic EHR dataset](https://www.kaggle.com/datasets/sergionefedov/patient-records-100k-patients-15-conditions), version 3, listed under **Apache-2.0**. All five raw-file hashes and reconstructed COPD input-table hashes were verified; see [source verification](docs/KAGGLE_SOURCE_VERIFICATION.json) and [third-party notices](THIRD_PARTY_NOTICES.md).
 
 ## Run locally
 
@@ -168,8 +168,8 @@ tools/          Public-distribution checks
 
 ## Open-source license and attribution
 
-Team-authored software is released under the [MIT License](LICENSE). Dependencies retain their own licences. This does not relicense external datasets, fictional EHR source material, model/data exports or inherited artwork; read [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for scope and unresolved source attribution. Real-person clinical datasets are not redistributed here.
+Team-authored software is released under the [MIT License](LICENSE). Dependencies retain their own licences. This does not relicense external datasets, fictional EHR source material, model/data exports or inherited artwork; read [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for verified dataset attribution, modification notices and the remaining artwork-rights limitation. Real-person clinical datasets are not redistributed here.
 
 ## Next steps
 
-Complete the narrated unlisted YouTube upload and add its link. Resolve the exact Kaggle source/licence. For clinical prediction, obtain event-linked longitudinal data with verified onset, availability and surveillance; predeclare a patient-separated experiment; assess coverage, incident-event recall and calibration; then seek independent clinical validation. More synthetic rows alone do not establish clinical accuracy.
+Complete the narrated unlisted YouTube upload and add its link. Confirm the inherited illustration rights. For clinical prediction, obtain event-linked longitudinal data with verified onset, availability and surveillance; predeclare a patient-separated experiment; assess coverage, incident-event recall and calibration; then seek independent clinical validation. More synthetic rows alone do not establish clinical accuracy.

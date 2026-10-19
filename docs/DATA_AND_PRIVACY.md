@@ -7,7 +7,7 @@ This repository is a separate public export. The original integrated working pro
 - Team member names and institution explicitly supplied for public hackathon submission.
 - Team-authored application/research source, versioned policies, and aggregate metrics.
 - The explicitly fictional contract illustration `DEMO-SYNTHETIC-002`.
-- Fictional scenario observations, synthetic baseline profiles and held-out synthetic ML examples. These contain simulated clinical values, not verified real patient records. The Kaggle source attribution/licence is unresolved; see the third-party notice.
+- Fictional scenario observations, synthetic baseline profiles and held-out synthetic ML examples. These contain simulated clinical values, not verified real patient records. The exact Kaggle version 3 source is verified by file hashes and attributed to Sergey Nefedov under the publisher-listed Apache-2.0 licence; see the third-party notice.
 - Two additional handwritten fictional test fixtures for multiple contexts and missing readings. They are test-only and never presented as real source patients.
 
 ## Excluded
